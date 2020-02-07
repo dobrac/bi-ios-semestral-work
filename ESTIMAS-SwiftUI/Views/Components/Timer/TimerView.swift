@@ -25,7 +25,7 @@ struct TimerTaskView: View {
     var workItem: WorkItem?
 
     func isNotNil() -> Bool {
-        return workItem != nil
+        return workItem != nil || isLoading()
     }
 
     func isLoading() -> Bool {

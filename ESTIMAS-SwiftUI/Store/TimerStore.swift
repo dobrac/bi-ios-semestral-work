@@ -10,7 +10,7 @@ import Foundation
 
 class TimerStore : ObservableObject {
     @Published var workItem: WorkItem?
-    @Published var loading: Bool = true
+    @Published var loading: Bool = false
 
     init() {
     }

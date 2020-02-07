@@ -25,11 +25,12 @@ func getLastWorkItem(_ completion: @escaping ((WorkItem?)->())) {
                 let result = try JSONDecoder().decode(WorkItem.self, from: data)
                 if result.endDate == emptyDate {
                     completion(result)
+                    return
                 }
             } catch {
                 print("FETCH ERROR")
-                completion(nil)
             }
+            completion(nil)
     }
 }
 
