@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct MainView: View {
-    var logout: () -> Void
-
     var body: some View {
         TabView {
             TimerTabView()
@@ -28,7 +26,7 @@ struct MainView: View {
                     Image(systemName: "chart.pie.fill")
                     Text("Přehledy")
             }
-            ProfileTabView(logout: logout)
+            ProfileTabView()
                 .tabItem {
                     Image(systemName: "person.fill")
                     Text("Profil")

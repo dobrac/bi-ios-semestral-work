@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 
-func login(username: String, password: String, _ completion: @escaping ((Token?)->())) {
+func loginUser(username: String, password: String, _ completion: @escaping ((Token?)->())) {
     Alamofire.request("\(serverURL)/token",
         method: .post,
         parameters: ["email": username, "password": password, "domain": companyName, "expirationType": 2],

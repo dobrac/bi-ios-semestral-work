@@ -11,12 +11,12 @@ import SDWebImageSwiftUI
 import CoreData
 
 struct LoginView: View {
+    @EnvironmentObject var sessionStore: SessionStore
+
     @State private var username: String = "dobry@net-inout.cz"
     @State private var password: String = "152430"
 
     @State private var loading: Bool = false
-
-    var loggedIn: () -> Void
 
     var body: some View {
         VStack {
@@ -28,11 +28,7 @@ struct LoginView: View {
             SecureField("Heslo", text: $password);
             Button(action: {
                 self.loading = true
-                login(username: self.username, password: self.password) { token in
-                    if let token = token {
-                        saveToken(token: token)
-                        self.loggedIn()
-                    }
+                self.sessionStore.login(username: self.username, password: self.password) { _ in
                     self.loading = false
                 }
             }) {

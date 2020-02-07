@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,7 +26,7 @@
 		F68D1A9D23EC775300E66AF3 /* WorkRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D1A9C23EC775300E66AF3 /* WorkRowView.swift */; };
 		F68D1AA123EC977F00E66AF3 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D1AA023EC977F00E66AF3 /* LoginController.swift */; };
 		F68D1AA323EC978800E66AF3 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D1AA223EC978800E66AF3 /* Token.swift */; };
-		F68D1AA523EC996000E66AF3 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D1AA423EC996000E66AF3 /* APIController.swift */; };
+		F68D1AA523EC996000E66AF3 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D1AA423EC996000E66AF3 /* GlobalVariables.swift */; };
 		F6BE74A923ECA9C900CEE721 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74A823ECA9C800CEE721 /* Activity.swift */; };
 		F6BE74AB23ECABC600CEE721 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74AA23ECABC600CEE721 /* ActivityController.swift */; };
 		F6BE74AE23ECBED400CEE721 /* HexToColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74AD23ECBED400CEE721 /* HexToColor.swift */; };
@@ -36,6 +36,8 @@
 		F6BE74B723ECD2F800CEE721 /* TimerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74B623ECD2F800CEE721 /* TimerStore.swift */; };
 		F6BE74B923ECD31D00CEE721 /* WorkItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74B823ECD31D00CEE721 /* WorkItemController.swift */; };
 		F6BE74BB23ECD4D800CEE721 /* WorkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74BA23ECD4D800CEE721 /* WorkItem.swift */; };
+		F6BE74C323ECE74F00CEE721 /* TokenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74C223ECE74F00CEE721 /* TokenController.swift */; };
+		F6BE74C523ECEC7800CEE721 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74C423ECEC7800CEE721 /* SessionStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +64,7 @@
 		F68D1A9C23EC775300E66AF3 /* WorkRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkRowView.swift; sourceTree = "<group>"; };
 		F68D1AA023EC977F00E66AF3 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		F68D1AA223EC978800E66AF3 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		F68D1AA423EC996000E66AF3 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		F68D1AA423EC996000E66AF3 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		F6BE74A823ECA9C800CEE721 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		F6BE74AA23ECABC600CEE721 /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		F6BE74AD23ECBED400CEE721 /* HexToColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexToColor.swift; sourceTree = "<group>"; };
@@ -74,6 +76,8 @@
 		F6BE74BA23ECD4D800CEE721 /* WorkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkItem.swift; sourceTree = "<group>"; };
 		F6BE74BC23ECE2AD00CEE721 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BE74BE23ECE38B00CEE721 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6BE74C223ECE74F00CEE721 /* TokenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenController.swift; sourceTree = "<group>"; };
+		F6BE74C423ECEC7800CEE721 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,9 +228,9 @@
 			isa = PBXGroup;
 			children = (
 				F68D1AA023EC977F00E66AF3 /* LoginController.swift */,
-				F68D1AA423EC996000E66AF3 /* APIController.swift */,
 				F6BE74AA23ECABC600CEE721 /* ActivityController.swift */,
 				F6BE74B823ECD31D00CEE721 /* WorkItemController.swift */,
+				F6BE74C223ECE74F00CEE721 /* TokenController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -234,6 +238,7 @@
 		F6BE74AC23ECBEBA00CEE721 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F68D1AA423EC996000E66AF3 /* GlobalVariables.swift */,
 				F6BE74AD23ECBED400CEE721 /* HexToColor.swift */,
 				F6BE74B423ECD03400CEE721 /* FixRenderView.swift */,
 			);
@@ -245,6 +250,7 @@
 			children = (
 				F6BE74B223ECC76700CEE721 /* ProjectsStore.swift */,
 				F6BE74B623ECD2F800CEE721 /* TimerStore.swift */,
+				F6BE74C423ECEC7800CEE721 /* SessionStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 				F65C263723EB87EF007246D1 /* TimerTabView.swift in Sources */,
 				F6BE74B523ECD03400CEE721 /* FixRenderView.swift in Sources */,
 				F65C263D23EB8852007246D1 /* ActivitiesListView.swift in Sources */,
+				F6BE74C523ECEC7800CEE721 /* SessionStore.swift in Sources */,
 				F65C263F23EB885C007246D1 /* ActivityRowView.swift in Sources */,
 				F6BE74B923ECD31D00CEE721 /* WorkItemController.swift in Sources */,
 				F6BE74AB23ECABC600CEE721 /* ActivityController.swift in Sources */,
@@ -367,9 +374,10 @@
 				F6BE74AE23ECBED400CEE721 /* HexToColor.swift in Sources */,
 				F65C261B23EB78F4007246D1 /* SceneDelegate.swift in Sources */,
 				F68D1A9D23EC775300E66AF3 /* WorkRowView.swift in Sources */,
+				F6BE74C323ECE74F00CEE721 /* TokenController.swift in Sources */,
 				F68D1A9B23EC774800E66AF3 /* WorksListView.swift in Sources */,
 				F6BE74B723ECD2F800CEE721 /* TimerStore.swift in Sources */,
-				F68D1AA523EC996000E66AF3 /* APIController.swift in Sources */,
+				F68D1AA523EC996000E66AF3 /* GlobalVariables.swift in Sources */,
 				F68D1AA123EC977F00E66AF3 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

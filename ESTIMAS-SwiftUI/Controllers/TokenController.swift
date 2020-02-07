@@ -1,19 +1,14 @@
 //
-//  BaseController.swift
+//  TokenController.swift
 //  ESTIMAS-SwiftUI
 //
-//  Created by Jakub Dobry on 06/02/2020.
+//  Created by Jakub Dobry on 07/02/2020.
 //  Copyright © 2020 Jakub Dobry. All rights reserved.
 //
 
 import Foundation
 import CoreData
 import UIKit
-
-var companyName: String = "beta"
-var serverURL: String = "https://v11.server.estimas.cz/api"
-
-var emptyDate: String = "0001-01-01T00:00:00"
 
 func clearToken() {
     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -51,7 +46,7 @@ func saveToken(token: Token) {
 
 func getToken() -> Token? {
     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return nil
+        return nil
     }
 
     let managedContext = appDelegate.persistentContainer.viewContext
@@ -61,7 +56,7 @@ func getToken() -> Token? {
     do {
         let result = try managedContext.fetch(fetchRequest)
         let resultItem = result.first
-        
+
         if let resultItem = resultItem {
             return Token(token: resultItem.token!, email: resultItem.email!, uid: resultItem.uid!)
         }
@@ -78,7 +73,7 @@ func getBasicHeaders() -> Dictionary<String, String> {
         return [:]
     }
 
-   let headers = [ "Authorization": "Bearer \(token.token)",
+    let headers = [ "Authorization": "Bearer \(token.token)",
         "Accept": "application/json",
         "Content-Type": "application/json"]
 

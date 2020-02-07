@@ -9,14 +9,13 @@
 import SwiftUI
 
 struct ProfileTabView: View {
-    var logout: () -> Void
+    @EnvironmentObject var sessionStore: SessionStore
 
     var body: some View {
         VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            Text(sessionStore.token?.email ?? "Unknown")
             Button(action: {
-                clearToken()
-                self.logout()
+                self.sessionStore.logout()
             }) {
                 Text("Odhlásit se")
             }

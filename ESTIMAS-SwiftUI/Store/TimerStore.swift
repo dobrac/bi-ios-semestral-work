@@ -13,7 +13,6 @@ class TimerStore : ObservableObject {
     @Published var loading: Bool = true
 
     init() {
-        fetchLastTask()
     }
 
     func fetchLastTask() {

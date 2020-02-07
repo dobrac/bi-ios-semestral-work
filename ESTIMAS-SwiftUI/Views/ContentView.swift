@@ -9,18 +9,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var loggedIn: Bool = getToken() != nil
+    @EnvironmentObject var sessionStore: SessionStore
 
     @ViewBuilder
     var body: some View {
-        if !loggedIn {
-            LoginView(loggedIn: {
-                self.loggedIn = true
-            });
+        if sessionStore.isLoggedIn() {
+            MainView()
         } else {
-            MainView(logout: {
-                self.loggedIn = false
-            });
+            LoginView();
         }
     }
 }
