@@ -1,0 +1,6 @@
+module Pods_ESTIMAS_SwiftUI {
+  umbrella header "Pods-ESTIMAS-SwiftUI-umbrella.h"
+
+  export *
+  module * { export * }
+}
