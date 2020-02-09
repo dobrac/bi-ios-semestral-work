@@ -9,9 +9,11 @@
 import SwiftUI
 
 struct MainView: View {
+    let geometry: GeometryProxy
+
     var body: some View {
         TabView {
-            TimerTabView()
+            TimerTabView(geometry: geometry)
                 .tabItem {
                     Image(systemName: "house.fill")
                     Text("Domů")
@@ -33,5 +35,6 @@ struct MainView: View {
             }
         }
         .font(.headline)
+        .edgesIgnoringSafeArea(.top)
     }
 }

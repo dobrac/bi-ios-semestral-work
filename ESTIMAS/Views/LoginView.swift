@@ -24,17 +24,32 @@ struct LoginView: View {
                 .resizable() // Resizable like SwiftUI.Image
                 .scaledToFit()
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 50, trailing: 0));
-            TextField("Uživatel", text: $username);
-            SecureField("Heslo", text: $password);
+
+            VStack(alignment: .leading) {
+                Text("Uživatel").bold()
+                TextField("Uživatel", text: $username);
+
+                Text("Heslo").bold().padding(.top, 20)
+                SecureField("Heslo", text: $password);
+            }.padding(.bottom, 10)
+
             Button(action: {
                 self.loading = true
                 self.sessionStore.login(username: self.username, password: self.password) { _ in
                     self.loading = false
                 }
             }) {
-                Text("Přihlásit se")
-            }.disabled(loading);
+                Text(loading ? "Přihlašování se..." : "Přihlásit se")
+                    .padding(10)
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .background(Color.blue)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(10)
+            }
+            .disabled(loading);
         }
-        .padding(40);
+        .padding(40)
+        .fillParent(alignment: .center)
+        .modifier(AdaptsToSoftwareKeyboard())
     }
 }

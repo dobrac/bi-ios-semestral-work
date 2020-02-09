@@ -13,10 +13,12 @@ struct ContentView: View {
 
     @ViewBuilder
     var body: some View {
-        if sessionStore.isLoggedIn() {
-            MainView()
-        } else {
-            LoginView();
+        GeometryReader { geometry in
+            if self.sessionStore.isLoggedIn() {
+                MainView(geometry: geometry)
+            } else {
+                LoginView();
+            }
         }
     }
 }

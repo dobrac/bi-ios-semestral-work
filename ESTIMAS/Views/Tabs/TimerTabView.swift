@@ -9,10 +9,13 @@
 import SwiftUI
 
 struct TimerTabView: View {
+    let geometry: GeometryProxy
+
     var body: some View {
         VStack(spacing: 0) {
-            TimerView()
+            TimerView(geometry: geometry)
             ActivitiesListView()
         }
+        .edgesIgnoringSafeArea(.top)
     }
 }

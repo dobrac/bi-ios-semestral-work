@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		DA491979CE7D9406BB506573 /* libPods-ESTIMAS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21D8BEE9BAF986C8853E25D0 /* libPods-ESTIMAS.a */; };
+		F615DAEF23EFFE18009AC4E8 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DAEE23EFFE18009AC4E8 /* UserStore.swift */; };
+		F615DAF123EFFE38009AC4E8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DAF023EFFE38009AC4E8 /* User.swift */; };
+		F615DAF323F00A7C009AC4E8 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DAF223F00A7C009AC4E8 /* UserController.swift */; };
+		F615DAF623F05AE3009AC4E8 /* ProfilePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DAF523F05AE3009AC4E8 /* ProfilePictureView.swift */; };
+		F615DAF823F071F2009AC4E8 /* AdaptToSoftwareKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DAF723F071F2009AC4E8 /* AdaptToSoftwareKeyboard.swift */; };
 		F65C261923EB78F4007246D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65C261823EB78F4007246D1 /* AppDelegate.swift */; };
 		F65C261B23EB78F4007246D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65C261A23EB78F4007246D1 /* SceneDelegate.swift */; };
 		F65C261E23EB78F4007246D1 /* ESTIMAS_SwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F65C261C23EB78F4007246D1 /* ESTIMAS_SwiftUI.xcdatamodeld */; };
@@ -49,7 +54,12 @@
 		02F99E4B921501D3244E0F0A /* Pods-ESTIMAS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESTIMAS.debug.xcconfig"; path = "Target Support Files/Pods-ESTIMAS/Pods-ESTIMAS.debug.xcconfig"; sourceTree = "<group>"; };
 		21D8BEE9BAF986C8853E25D0 /* libPods-ESTIMAS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ESTIMAS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		478E891FA11D3A3C7F386E64 /* Pods-ESTIMAS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESTIMAS.release.xcconfig"; path = "Target Support Files/Pods-ESTIMAS/Pods-ESTIMAS.release.xcconfig"; sourceTree = "<group>"; };
-		F65C261523EB78F4007246D1 /* ESTIMAS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ESTIMAS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F615DAEE23EFFE18009AC4E8 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		F615DAF023EFFE38009AC4E8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F615DAF223F00A7C009AC4E8 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		F615DAF523F05AE3009AC4E8 /* ProfilePictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureView.swift; sourceTree = "<group>"; };
+		F615DAF723F071F2009AC4E8 /* AdaptToSoftwareKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptToSoftwareKeyboard.swift; sourceTree = "<group>"; };
+		F65C261523EB78F4007246D1 /* ESTIMAS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESTIMAS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F65C261823EB78F4007246D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F65C261A23EB78F4007246D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F65C261D23EB78F4007246D1 /* ESTIMAS_SwiftUI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ESTIMAS_SwiftUI.xcdatamodel; sourceTree = "<group>"; };
@@ -121,6 +131,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F615DAF423F05AD7009AC4E8 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				F615DAF523F05AE3009AC4E8 /* ProfilePictureView.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		F65C260C23EB78F4007246D1 = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +173,7 @@
 				F65C261C23EB78F4007246D1 /* ESTIMAS_SwiftUI.xcdatamodeld */,
 				F65C262323EB78F5007246D1 /* Preview Content */,
 			);
-			path = "ESTIMAS";
+			path = ESTIMAS;
 			sourceTree = "<group>";
 		};
 		F65C262323EB78F5007246D1 /* Preview Content */ = {
@@ -191,6 +209,7 @@
 		F65C263923EB8836007246D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F615DAF423F05AD7009AC4E8 /* User */,
 				F6E60A2923EE0D7E006C779E /* Helpers */,
 				F68D1A9923EC773B00E66AF3 /* Work */,
 				F65C263B23EB8845007246D1 /* Activities */,
@@ -232,6 +251,7 @@
 				F68D1AA223EC978800E66AF3 /* Token.swift */,
 				F6BE74A823ECA9C800CEE721 /* Activity.swift */,
 				F6BE74BA23ECD4D800CEE721 /* WorkItem.swift */,
+				F615DAF023EFFE38009AC4E8 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -243,6 +263,7 @@
 				F6BE74AA23ECABC600CEE721 /* ActivityController.swift */,
 				F6BE74B823ECD31D00CEE721 /* WorkItemController.swift */,
 				F6BE74C223ECE74F00CEE721 /* TokenController.swift */,
+				F615DAF223F00A7C009AC4E8 /* UserController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -254,6 +275,7 @@
 				F6BE74AD23ECBED400CEE721 /* HexToColor.swift */,
 				F6BE74B423ECD03400CEE721 /* FixRenderView.swift */,
 				F6E60A2723EE0193006C779E /* SecondsToString.swift */,
+				F615DAF723F071F2009AC4E8 /* AdaptToSoftwareKeyboard.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -265,6 +287,7 @@
 				F6BE74B623ECD2F800CEE721 /* TimerStore.swift */,
 				F6BE74C423ECEC7800CEE721 /* SessionStore.swift */,
 				F6E60A2E23EF6EB6006C779E /* WorkStore.swift */,
+				F615DAEE23EFFE18009AC4E8 /* UserStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -294,8 +317,8 @@
 			);
 			dependencies = (
 			);
-			name = "ESTIMAS";
-			productName = "ESTIMAS";
+			name = ESTIMAS;
+			productName = ESTIMAS;
 			productReference = F65C261523EB78F4007246D1 /* ESTIMAS.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -379,14 +402,17 @@
 				F6BE74BB23ECD4D800CEE721 /* WorkItem.swift in Sources */,
 				F65C263723EB87EF007246D1 /* TimerTabView.swift in Sources */,
 				F6BE74B523ECD03400CEE721 /* FixRenderView.swift in Sources */,
+				F615DAF623F05AE3009AC4E8 /* ProfilePictureView.swift in Sources */,
 				F65C263D23EB8852007246D1 /* ActivitiesListView.swift in Sources */,
 				F6E60A2F23EF6EB6006C779E /* WorkStore.swift in Sources */,
+				F615DAF823F071F2009AC4E8 /* AdaptToSoftwareKeyboard.swift in Sources */,
 				F6BE74C523ECEC7800CEE721 /* SessionStore.swift in Sources */,
 				F65C263F23EB885C007246D1 /* ActivityRowView.swift in Sources */,
 				F6BE74B923ECD31D00CEE721 /* WorkItemController.swift in Sources */,
 				F6BE74AB23ECABC600CEE721 /* ActivityController.swift in Sources */,
 				F6BE74B323ECC76700CEE721 /* ProjectsStore.swift in Sources */,
 				F68D1A9823EC773700E66AF3 /* WorkTabView.swift in Sources */,
+				F615DAEF23EFFE18009AC4E8 /* UserStore.swift in Sources */,
 				F6BE74B023ECC47100CEE721 /* ProfileTabView.swift in Sources */,
 				F65C263523EB876D007246D1 /* TimerView.swift in Sources */,
 				F6E60A2823EE0193006C779E /* SecondsToString.swift in Sources */,
@@ -398,6 +424,7 @@
 				F65C262023EB78F4007246D1 /* LoginView.swift in Sources */,
 				F6E60A3123EF74D6006C779E /* ActivityView.swift in Sources */,
 				F65C263123EB8183007246D1 /* MainTabView.swift in Sources */,
+				F615DAF123EFFE38009AC4E8 /* User.swift in Sources */,
 				F6BE74AE23ECBED400CEE721 /* HexToColor.swift in Sources */,
 				F65C261B23EB78F4007246D1 /* SceneDelegate.swift in Sources */,
 				F68D1A9D23EC775300E66AF3 /* WorkRowView.swift in Sources */,
@@ -405,6 +432,7 @@
 				F6BE74C323ECE74F00CEE721 /* TokenController.swift in Sources */,
 				F68D1A9B23EC774800E66AF3 /* WorksListView.swift in Sources */,
 				F6BE74B723ECD2F800CEE721 /* TimerStore.swift in Sources */,
+				F615DAF323F00A7C009AC4E8 /* UserController.swift in Sources */,
 				F68D1AA523EC996000E66AF3 /* GlobalVariables.swift in Sources */,
 				F68D1AA123EC977F00E66AF3 /* LoginController.swift in Sources */,
 			);
@@ -547,13 +575,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ESTIMAS/Preview Content\"";
 				DEVELOPMENT_TEAM = 32QTBJ2YM4;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "ESTIMAS/Info.plist";
+				INFOPLIST_FILE = ESTIMAS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cz.cvut.fit.dobryjak.ESTIMAS;
-				PRODUCT_NAME = "ESTIMAS";
+				PRODUCT_NAME = ESTIMAS;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -568,13 +596,13 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ESTIMAS/Preview Content\"";
 				DEVELOPMENT_TEAM = 32QTBJ2YM4;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "ESTIMAS/Info.plist";
+				INFOPLIST_FILE = ESTIMAS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cz.cvut.fit.dobryjak.ESTIMAS;
-				PRODUCT_NAME = "ESTIMAS";
+				PRODUCT_NAME = ESTIMAS;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

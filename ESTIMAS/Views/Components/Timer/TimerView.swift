@@ -10,12 +10,14 @@ import SwiftUI
 
 struct TimerView: View {
     @EnvironmentObject var timerStore: TimerStore
-
+    let geometry: GeometryProxy
+    
     var body: some View {
-        TimerTaskView(workItem: timerStore.workItem)
-            .frame(height: 50)
+        TimerTaskView(workItem: self.timerStore.workItem)
             .frame(minWidth: 0, maxWidth: .infinity)
+            .frame(height: 50)
             .padding(14)
+            .padding(.top, geometry.safeAreaInsets.top)
             .background(Color(red: 0.00, green: 0.41, blue: 0.71))
     }
 }
@@ -53,7 +55,11 @@ struct TimerTaskView: View {
                 }.alert(isPresented: $showingAlert) {
                     Alert(title: Text("Konec?"),
                           message: Text("Opravdu chceš ukončit práci na činnosti?"),
-                          primaryButton: .destructive(Text("Ano"), action: { self.timerStore.endTimer() } ),
+                          primaryButton: .destructive(Text("Ano"), action: {
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                self.timerStore.endTimer()
+                            }
+                          }),
                           secondaryButton: .default(Text("Ne")))
                 }.padding(.trailing, 5)
 

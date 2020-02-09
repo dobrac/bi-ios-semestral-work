@@ -34,7 +34,9 @@ struct ActivityRowView: View {
                             message: Text("Opravdu chceš spustit práci na činnosti?"),
                             buttons: [
                                 .default(Text("Spustit činnost"), action: {
-                                    self.timerStore.startTimer(activity: self.activity)
+                                     withAnimation(.easeInOut(duration: 0.2)) {
+                                        self.timerStore.startTimer(activity: self.activity)
+                                    }
                                 }),
                                 .cancel(Text("Zrušit"))
                 ])

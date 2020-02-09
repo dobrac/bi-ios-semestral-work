@@ -12,12 +12,14 @@ class SessionStore : ObservableObject {
     @Published var token: Token?
 
     var projectsStore: ProjectsStore
-    private(set) var timerStore: TimerStore!
     var workStore: WorkStore
+    var userStore: UserStore
+    private(set) var timerStore: TimerStore!
 
     init() {
         projectsStore = ProjectsStore(projects: [])
         workStore = WorkStore()
+        userStore = UserStore()
         timerStore = TimerStore(sessionStore: self)
 
         let tokenGet = getToken()
@@ -50,6 +52,7 @@ class SessionStore : ObservableObject {
         self.projectsStore.fetchProjects()
         self.timerStore.fetchLastTask()
         self.workStore.fetchWorkItems()
+        self.userStore.fetchUserData()
     }
 
     func logout() {
