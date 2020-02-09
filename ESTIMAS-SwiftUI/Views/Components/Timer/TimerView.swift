@@ -13,7 +13,7 @@ struct TimerView: View {
 
     var body: some View {
         TimerTaskView(workItem: timerStore.workItem)
-            .frame(height: 30)
+            .frame(height: 50)
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding(14)
             .background(Color(red: 0.00, green: 0.41, blue: 0.71))
@@ -33,6 +33,9 @@ struct TimerTaskView: View {
     }
 
     @State var showingAlert: Bool = false
+    @State var currentDate = Date()
+
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
         HStack {
@@ -43,7 +46,7 @@ struct TimerTaskView: View {
                     Image(systemName: "stop.circle.fill")
                         .foregroundColor(Color.white)
                         .background(Color.red)
-                        .font(.system(size: 50))
+                        .font(.system(size: 70))
                         .clipShape(Circle())
                         .shadow(radius: 10)
                         .overlay(Circle().stroke(Color.white, lineWidth: 5))
@@ -52,14 +55,22 @@ struct TimerTaskView: View {
                           message: Text("Opravdu chceš ukončit práci na činnosti?"),
                           primaryButton: .destructive(Text("Ano"), action: { self.timerStore.endTimer() } ),
                           secondaryButton: .default(Text("Ne")))
-                }
+                }.padding(.trailing, 5)
 
                 if isLoading() {
                     Text("Načítání...")
                         .foregroundColor(Color.white)
                 } else {
-                    Text(workItem!.activity.name)
-                        .foregroundColor(Color.white)
+                    VStack(alignment: .leading) {
+                        Text(workItem!.activity.name)
+                            .foregroundColor(Color.white)
+                        Text(secondsToString(seconds: workItem!.getTimeElapsed(from: currentDate)))
+                            .font(.system(.body, design: .monospaced))
+                            .foregroundColor(Color.white)
+                            .onReceive(timer) { time in
+                                self.currentDate = time
+                        }
+                    }
                 }
             } else {
                 Text("Žádná činnost")

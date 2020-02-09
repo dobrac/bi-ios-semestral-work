@@ -12,7 +12,10 @@ class TimerStore : ObservableObject {
     @Published var workItem: WorkItem?
     @Published var loading: Bool = false
 
-    init() {
+    var sessionStore: SessionStore
+
+    init(sessionStore: SessionStore) {
+        self.sessionStore = sessionStore
     }
 
     func fetchLastTask() {
@@ -29,12 +32,14 @@ class TimerStore : ObservableObject {
 
         startTask(activity: activity) {
             self.fetchLastTask()
+            self.sessionStore.workStore.fetchWorkItems()
         }
     }
 
     func endTimer() {
         self.workItem = nil
         endLastTask {
+            self.sessionStore.workStore.fetchWorkItems()
         }
     }
 }

@@ -58,3 +58,29 @@ func endLastTask(_ completion: @escaping ()->()) {
             completion()
         }
 }
+
+func getWorkItems(startDay: String, endDay: String, _ completion: @escaping ([WorkItem])->()) {
+    let tokenGet = getToken()
+    guard let token = tokenGet else {
+        return
+    }
+
+    Alamofire.request("\(serverURL)/WorkItem/getForUserInterval/\(startDay)/\(endDay)/\(token.uid)",
+        method: .get,
+        headers: getBasicHeaders())
+        .response { response in
+            guard let data = response.data else {
+                print("FETCH ERROR")
+                completion([]);
+                return
+            }
+
+            do {
+                let result = try JSONDecoder().decode([WorkItem].self, from: data)
+                completion(result.reversed())
+            } catch {
+                print("FETCH ERROR")
+                completion([])
+            }
+    }
+}

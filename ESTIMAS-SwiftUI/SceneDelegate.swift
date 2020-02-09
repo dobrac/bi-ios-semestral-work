@@ -33,7 +33,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window.rootViewController = UIHostingController(rootView: contentView
                 .environmentObject(sessionStore)
                 .environmentObject(sessionStore.projectsStore)
-                .environmentObject(sessionStore.timerStore))
+                .environmentObject(sessionStore.timerStore)
+                .environmentObject(sessionStore.workStore)
+            )
             self.window = window
             window.makeKeyAndVisible()
         }

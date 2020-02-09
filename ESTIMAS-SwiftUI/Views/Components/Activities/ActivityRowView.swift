@@ -11,32 +11,33 @@ import SwiftUI
 struct ActivityRowView: View {
     @EnvironmentObject var timerStore: TimerStore
     @State var activity: Activity
-
-    var color: Color {
-        get {
-            return Color(hexStringToUIColor(hex: activity.project.color))
-        }
-    }
+    @State var showingStart: Bool = false
 
     var body: some View {
         VStack(alignment: .leading) {
             Button(action: {
-                self.timerStore.startTimer(activity: self.activity)
+                withAnimation {
+                    self.showingStart = true
+                }
             }) {
                 HStack {
                     Image(systemName: "chevron.right")
-                        .foregroundColor(color)
+                        .foregroundColor(activity.color)
                         .font(Font.system(size: 25).weight(.heavy))
                         .padding(.trailing, 10)
                         .padding(.leading, 5)
-                    VStack(alignment: .leading) {
-                        Text(activity.project.name)
-                            .foregroundColor(color)
-                        Text(activity.name)
-                            .foregroundColor(.black)
-                    }
+                    ActivityView(activity: activity)
                     Spacer()
                 }.padding(5)
+            }.actionSheet(isPresented: $showingStart) {
+                ActionSheet(title: Text(activity.name),
+                            message: Text("Opravdu chceš spustit práci na činnosti?"),
+                            buttons: [
+                                .default(Text("Spustit činnost"), action: {
+                                    self.timerStore.startTimer(activity: self.activity)
+                                }),
+                                .cancel(Text("Zrušit"))
+                ])
             }
             Divider()
         }

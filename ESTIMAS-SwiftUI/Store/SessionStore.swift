@@ -11,10 +11,15 @@ import Foundation
 class SessionStore : ObservableObject {
     @Published var token: Token?
 
-    var projectsStore = ProjectsStore(projects: [])
-    var timerStore = TimerStore()
+    var projectsStore: ProjectsStore
+    private(set) var timerStore: TimerStore!
+    var workStore: WorkStore
 
     init() {
+        projectsStore = ProjectsStore(projects: [])
+        workStore = WorkStore()
+        timerStore = TimerStore(sessionStore: self)
+
         let tokenGet = getToken()
         if let token = tokenGet {
             self.token = token
@@ -44,6 +49,7 @@ class SessionStore : ObservableObject {
     func afterLogin() {
         self.projectsStore.fetchProjects()
         self.timerStore.fetchLastTask()
+        self.workStore.fetchWorkItems()
     }
 
     func logout() {

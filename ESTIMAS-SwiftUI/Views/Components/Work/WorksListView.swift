@@ -9,13 +9,25 @@
 import SwiftUI
 
 struct WorksListView: View {
-    var workitems: [String] = ["Red","Raain","Rozi","Rozina","Rozinava", "Roy","Roy son","Rediss","Raj","Blue", "Yellow", "Red","Raain","Rozi","Rozina","Rozinava", "Roy","Roy son","Rediss","Raj","Blue", "Yellow"]
+     @EnvironmentObject var workStore: WorkStore
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Činnost")
+                    Spacer()
+                    Text("Od - do")
+                    Text("Trvání").padding(.leading, 10).padding(.trailing, 40)
+                }
+                .padding(.leading, 10)
+                .padding(.trailing, 10)
+            }
+            Divider().padding(.top, 10)
             ScrollView {
-                ForEach(self.workitems, id: \.self) { workitem in
-                    WorkRowView()
+                FixRenderView()
+                ForEach(workStore.workItems) { workItem in
+                    WorkRowView(workItem: workItem).frame(minWidth: 0, maxWidth: .infinity)
                 }
             }
         }

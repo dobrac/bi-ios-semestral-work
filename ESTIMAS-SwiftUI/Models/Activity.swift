@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct ProjectActivity: Decodable, Identifiable {
     var id: String {
@@ -33,4 +34,10 @@ struct Activity: Decodable, Identifiable {
     var uid: String
     var name: String
     var project: Project
+
+    var color: Color {
+        get {
+            return Color(hexStringToUIColor(hex: project.color))
+        }
+    }
 }

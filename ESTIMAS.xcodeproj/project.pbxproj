@@ -38,6 +38,11 @@
 		F6BE74BB23ECD4D800CEE721 /* WorkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74BA23ECD4D800CEE721 /* WorkItem.swift */; };
 		F6BE74C323ECE74F00CEE721 /* TokenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74C223ECE74F00CEE721 /* TokenController.swift */; };
 		F6BE74C523ECEC7800CEE721 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74C423ECEC7800CEE721 /* SessionStore.swift */; };
+		F6E60A2823EE0193006C779E /* SecondsToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A2723EE0193006C779E /* SecondsToString.swift */; };
+		F6E60A2B23EE0D8A006C779E /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A2A23EE0D8A006C779E /* BottomSheetView.swift */; };
+		F6E60A2D23EE0DC5006C779E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A2C23EE0DC5006C779E /* ViewExtension.swift */; };
+		F6E60A2F23EF6EB6006C779E /* WorkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A2E23EF6EB6006C779E /* WorkStore.swift */; };
+		F6E60A3123EF74D6006C779E /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A3023EF74D6006C779E /* ActivityView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +83,11 @@
 		F6BE74BE23ECE38B00CEE721 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6BE74C223ECE74F00CEE721 /* TokenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenController.swift; sourceTree = "<group>"; };
 		F6BE74C423ECEC7800CEE721 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		F6E60A2723EE0193006C779E /* SecondsToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondsToString.swift; sourceTree = "<group>"; };
+		F6E60A2A23EE0D8A006C779E /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		F6E60A2C23EE0DC5006C779E /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		F6E60A2E23EF6EB6006C779E /* WorkStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkStore.swift; sourceTree = "<group>"; };
+		F6E60A3023EF74D6006C779E /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +191,7 @@
 		F65C263923EB8836007246D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F6E60A2923EE0D7E006C779E /* Helpers */,
 				F68D1A9923EC773B00E66AF3 /* Work */,
 				F65C263B23EB8845007246D1 /* Activities */,
 				F65C263A23EB883F007246D1 /* Timer */,
@@ -201,6 +212,7 @@
 			children = (
 				F65C263C23EB8852007246D1 /* ActivitiesListView.swift */,
 				F65C263E23EB885C007246D1 /* ActivityRowView.swift */,
+				F6E60A3023EF74D6006C779E /* ActivityView.swift */,
 			);
 			path = Activities;
 			sourceTree = "<group>";
@@ -241,6 +253,7 @@
 				F68D1AA423EC996000E66AF3 /* GlobalVariables.swift */,
 				F6BE74AD23ECBED400CEE721 /* HexToColor.swift */,
 				F6BE74B423ECD03400CEE721 /* FixRenderView.swift */,
+				F6E60A2723EE0193006C779E /* SecondsToString.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -251,8 +264,18 @@
 				F6BE74B223ECC76700CEE721 /* ProjectsStore.swift */,
 				F6BE74B623ECD2F800CEE721 /* TimerStore.swift */,
 				F6BE74C423ECEC7800CEE721 /* SessionStore.swift */,
+				F6E60A2E23EF6EB6006C779E /* WorkStore.swift */,
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		F6E60A2923EE0D7E006C779E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F6E60A2A23EE0D8A006C779E /* BottomSheetView.swift */,
+				F6E60A2C23EE0DC5006C779E /* ViewExtension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,7 +314,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F65C261023EB78F4007246D1 /* Build configuration list for PBXProject "ESTIMAS-SwiftUI" */;
+			buildConfigurationList = F65C261023EB78F4007246D1 /* Build configuration list for PBXProject "ESTIMAS" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -357,6 +380,7 @@
 				F65C263723EB87EF007246D1 /* TimerTabView.swift in Sources */,
 				F6BE74B523ECD03400CEE721 /* FixRenderView.swift in Sources */,
 				F65C263D23EB8852007246D1 /* ActivitiesListView.swift in Sources */,
+				F6E60A2F23EF6EB6006C779E /* WorkStore.swift in Sources */,
 				F6BE74C523ECEC7800CEE721 /* SessionStore.swift in Sources */,
 				F65C263F23EB885C007246D1 /* ActivityRowView.swift in Sources */,
 				F6BE74B923ECD31D00CEE721 /* WorkItemController.swift in Sources */,
@@ -365,15 +389,19 @@
 				F68D1A9823EC773700E66AF3 /* WorkTabView.swift in Sources */,
 				F6BE74B023ECC47100CEE721 /* ProfileTabView.swift in Sources */,
 				F65C263523EB876D007246D1 /* TimerView.swift in Sources */,
+				F6E60A2823EE0193006C779E /* SecondsToString.swift in Sources */,
 				F65C261923EB78F4007246D1 /* AppDelegate.swift in Sources */,
 				F68D1AA323EC978800E66AF3 /* Token.swift in Sources */,
 				F65C261E23EB78F4007246D1 /* ESTIMAS_SwiftUI.xcdatamodeld in Sources */,
+				F6E60A2B23EE0D8A006C779E /* BottomSheetView.swift in Sources */,
 				F65C263323EB851B007246D1 /* ContentView.swift in Sources */,
 				F65C262023EB78F4007246D1 /* LoginView.swift in Sources */,
+				F6E60A3123EF74D6006C779E /* ActivityView.swift in Sources */,
 				F65C263123EB8183007246D1 /* MainTabView.swift in Sources */,
 				F6BE74AE23ECBED400CEE721 /* HexToColor.swift in Sources */,
 				F65C261B23EB78F4007246D1 /* SceneDelegate.swift in Sources */,
 				F68D1A9D23EC775300E66AF3 /* WorkRowView.swift in Sources */,
+				F6E60A2D23EE0DC5006C779E /* ViewExtension.swift in Sources */,
 				F6BE74C323ECE74F00CEE721 /* TokenController.swift in Sources */,
 				F68D1A9B23EC774800E66AF3 /* WorksListView.swift in Sources */,
 				F6BE74B723ECD2F800CEE721 /* TimerStore.swift in Sources */,
@@ -524,8 +552,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cz.cvut.fit.dobryjak.ESTIMAS-SwiftUI";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = cz.cvut.fit.dobryjak.ESTIMAS;
+				PRODUCT_NAME = "ESTIMAS-SwiftUI";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -545,8 +573,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "cz.cvut.fit.dobryjak.ESTIMAS-SwiftUI";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = cz.cvut.fit.dobryjak.ESTIMAS;
+				PRODUCT_NAME = "ESTIMAS-SwiftUI";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -555,7 +583,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F65C261023EB78F4007246D1 /* Build configuration list for PBXProject "ESTIMAS-SwiftUI" */ = {
+		F65C261023EB78F4007246D1 /* Build configuration list for PBXProject "ESTIMAS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F65C262A23EB78F5007246D1 /* Debug */,
