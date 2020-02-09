@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftUIRefresh
 
 struct WorksListView: View {
     @EnvironmentObject var workStore: WorkStore
@@ -28,6 +29,8 @@ struct WorksListView: View {
                 ForEach(workStore.workItems) { workItem in
                     WorkRowView(workItem: workItem).frame(minWidth: 0, maxWidth: .infinity)
                 }
+            }.pullToRefresh(isShowing: $workStore.loading) {
+                self.workStore.fetchWorkItems()
             }
         }
     }

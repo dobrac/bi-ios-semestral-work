@@ -1,26 +1,34 @@
 PODS:
   - Alamofire (4.9.1)
+  - Introspect (0.0.6)
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
   - SDWebImage/Core (5.5.2)
   - SDWebImageSwiftUI (0.10.3):
     - SDWebImage (~> 5.3)
+  - SwiftUIRefresh (0.0.2):
+    - Introspect (~> 0.0.6)
 
 DEPENDENCIES:
   - Alamofire (~> 4.9)
   - SDWebImageSwiftUI
+  - SwiftUIRefresh
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Introspect
     - SDWebImage
     - SDWebImageSwiftUI
+    - SwiftUIRefresh
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Introspect: 3575a13dbece038e564e4375eeac2117e64a0242
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
   SDWebImageSwiftUI: 52a2dda1f76e2e5bf0b5ea4c0831737358656905
+  SwiftUIRefresh: 3daa095596b5a624ea67fd0174997026b339a5bc
 
-PODFILE CHECKSUM: a5d586c72e91042f80e9ab03d45c4afc425ed33d
+PODFILE CHECKSUM: 9b3d9b071686c1a164f7aa9f04714b94531e22b8
 
 COCOAPODS: 1.8.4

@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SwiftUIRefresh
 
 struct ActivitiesListView: View {
     @EnvironmentObject var projectsStore: ProjectsStore
@@ -14,9 +15,11 @@ struct ActivitiesListView: View {
     var body: some View {
         VStack {
             List {
-                ForEach(projectsStore.projects){ projects in
-                    ProjectActivityView(projectActivity: projects).frame(minWidth: 0, maxWidth: .infinity)
+                ForEach(projectsStore.projects){ projectActivity in
+                    ProjectActivityView(projectActivity: projectActivity).frame(minWidth: 0, maxWidth: .infinity)
                 }
+            }.pullToRefresh(isShowing: $projectsStore.loading) {
+                self.projectsStore.fetchProjects()
             }
         }
     }
