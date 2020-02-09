@@ -11,7 +11,7 @@ import SwiftUI
 
 struct ProjectActivity: Decodable, Identifiable {
     var id: String {
-        get { project.uid }
+        get { project.uid + activities.map { $0.id }.joined(separator: ",") }
     }
     var project: Project
     var activities: [Activity]
@@ -19,7 +19,7 @@ struct ProjectActivity: Decodable, Identifiable {
 
 struct Project: Decodable, Identifiable {
     var id: String {
-        get { uid }
+        get { uid + ";" + name }
     }
     var uid: String
     var name: String
@@ -29,7 +29,7 @@ struct Project: Decodable, Identifiable {
 
 struct Activity: Decodable, Identifiable {
     var id: String {
-        get { uid }
+        get { uid + ";" + name }
     }
     var uid: String
     var name: String

@@ -11,6 +11,7 @@ import SwiftUI
 struct WorkRowView: View {
     var workItem: WorkItem
     @State var showingMenu: Bool = false
+    @State var showingEdit: Bool = false
 
     var body: some View {
         Button(action: {
@@ -38,11 +39,16 @@ struct WorkRowView: View {
             ActionSheet(title: Text(workItem.activity.name),
                         buttons: [
                             .default(Text("Upravit"), action: {
+                                withAnimation {
+                                    self.showingEdit = true
+                                }
                             }),
                             .destructive(Text("Smazat"), action: {
                             }),
                             .cancel(Text("Zrušit"))
             ])
+        }.sheet(isPresented: $showingEdit) {
+            WorkRowEditView(workItem: self.workItem)
         }
     }
 }

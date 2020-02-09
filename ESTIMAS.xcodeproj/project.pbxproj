@@ -20,6 +20,8 @@
 		F615DB0323F09460009AC4E8 /* TableStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DB0223F09460009AC4E8 /* TableStatsView.swift */; };
 		F615DB0523F0950A009AC4E8 /* TableStatsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DB0423F0950A009AC4E8 /* TableStatsCardView.swift */; };
 		F615DB0723F0B19D009AC4E8 /* TableStatsCardViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DB0623F0B19D009AC4E8 /* TableStatsCardViewModifier.swift */; };
+		F615DB0C23F0C4F4009AC4E8 /* WorkRowEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DB0B23F0C4F4009AC4E8 /* WorkRowEditView.swift */; };
+		F62D6E4023F0CBF300EBD485 /* ListSeparatorStyleNoneModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62D6E3F23F0CBF300EBD485 /* ListSeparatorStyleNoneModifier.swift */; };
 		F65C261923EB78F4007246D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65C261823EB78F4007246D1 /* AppDelegate.swift */; };
 		F65C261B23EB78F4007246D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65C261A23EB78F4007246D1 /* SceneDelegate.swift */; };
 		F65C261E23EB78F4007246D1 /* ESTIMAS_SwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F65C261C23EB78F4007246D1 /* ESTIMAS_SwiftUI.xcdatamodeld */; };
@@ -72,6 +74,8 @@
 		F615DB0223F09460009AC4E8 /* TableStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableStatsView.swift; sourceTree = "<group>"; };
 		F615DB0423F0950A009AC4E8 /* TableStatsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableStatsCardView.swift; sourceTree = "<group>"; };
 		F615DB0623F0B19D009AC4E8 /* TableStatsCardViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableStatsCardViewModifier.swift; sourceTree = "<group>"; };
+		F615DB0B23F0C4F4009AC4E8 /* WorkRowEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkRowEditView.swift; sourceTree = "<group>"; };
+		F62D6E3F23F0CBF300EBD485 /* ListSeparatorStyleNoneModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSeparatorStyleNoneModifier.swift; sourceTree = "<group>"; };
 		F65C261523EB78F4007246D1 /* ESTIMAS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESTIMAS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F65C261823EB78F4007246D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F65C261A23EB78F4007246D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +173,14 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
+		F62D6E3E23F0CBE000EBD485 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				F62D6E3F23F0CBF300EBD485 /* ListSeparatorStyleNoneModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 		F65C260C23EB78F4007246D1 = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +252,7 @@
 		F65C263923EB8836007246D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F62D6E3E23F0CBE000EBD485 /* Modifiers */,
 				F615DB0123F09456009AC4E8 /* Stats */,
 				F615DAF423F05AD7009AC4E8 /* User */,
 				F6E60A2923EE0D7E006C779E /* Helpers */,
@@ -273,6 +286,7 @@
 			children = (
 				F68D1A9A23EC774800E66AF3 /* WorksListView.swift */,
 				F68D1A9C23EC775300E66AF3 /* WorkRowView.swift */,
+				F615DB0B23F0C4F4009AC4E8 /* WorkRowEditView.swift */,
 			);
 			path = Work;
 			sourceTree = "<group>";
@@ -440,6 +454,8 @@
 				F65C263D23EB8852007246D1 /* ActivitiesListView.swift in Sources */,
 				F6E60A2F23EF6EB6006C779E /* WorkStore.swift in Sources */,
 				F615DAF823F071F2009AC4E8 /* AdaptToSoftwareKeyboard.swift in Sources */,
+				F615DB0C23F0C4F4009AC4E8 /* WorkRowEditView.swift in Sources */,
+				F62D6E4023F0CBF300EBD485 /* ListSeparatorStyleNoneModifier.swift in Sources */,
 				F6BE74C523ECEC7800CEE721 /* SessionStore.swift in Sources */,
 				F65C263F23EB885C007246D1 /* ActivityRowView.swift in Sources */,
 				F6BE74B923ECD31D00CEE721 /* WorkItemController.swift in Sources */,

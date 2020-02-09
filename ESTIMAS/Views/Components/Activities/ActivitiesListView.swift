@@ -18,7 +18,9 @@ struct ActivitiesListView: View {
                 ForEach(projectsStore.projects){ projectActivity in
                     ProjectActivityView(projectActivity: projectActivity).frame(minWidth: 0, maxWidth: .infinity)
                 }
-            }.pullToRefresh(isShowing: $projectsStore.loading) {
+            }
+            .listSeparatorStyleNone()
+            .pullToRefresh(isShowing: $projectsStore.loading) {
                 self.projectsStore.fetchProjects()
             }
         }

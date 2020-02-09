@@ -27,9 +27,10 @@ struct WorksListView: View {
             Divider().padding(.top, 10)
             List {
                 ForEach(workStore.workItems) { workItem in
-                    WorkRowView(workItem: workItem).frame(minWidth: 0, maxWidth: .infinity)
+                        WorkRowView(workItem: workItem).frame(minWidth: 0, maxWidth: .infinity)
                 }
-            }.pullToRefresh(isShowing: $workStore.loading) {
+            }
+            .pullToRefresh(isShowing: $workStore.loading) {
                 self.workStore.fetchWorkItems()
             }
         }
