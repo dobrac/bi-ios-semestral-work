@@ -30,7 +30,12 @@ struct WorkItem: Decodable, Identifiable {
     func getTimeElapsed(from: Date) -> Double {
         let startDate = getStartDate()
         let endInterval = getEndDate()?.timeIntervalSince1970 ?? from.timeIntervalSince1970 - Double(TimeZone.current.secondsFromGMT())
+        let interval = endInterval - startDate.timeIntervalSince1970
 
-        return endInterval - startDate.timeIntervalSince1970
+        if interval < 0 {
+            return 0
+        } else {
+            return interval
+        }
     }
 }

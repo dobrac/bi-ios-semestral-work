@@ -13,6 +13,13 @@
 		F615DAF323F00A7C009AC4E8 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DAF223F00A7C009AC4E8 /* UserController.swift */; };
 		F615DAF623F05AE3009AC4E8 /* ProfilePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DAF523F05AE3009AC4E8 /* ProfilePictureView.swift */; };
 		F615DAF823F071F2009AC4E8 /* AdaptToSoftwareKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DAF723F071F2009AC4E8 /* AdaptToSoftwareKeyboard.swift */; };
+		F615DAFA23F0927C009AC4E8 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DAF923F0927C009AC4E8 /* StatsView.swift */; };
+		F615DAFC23F092A2009AC4E8 /* StatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DAFB23F092A2009AC4E8 /* StatsController.swift */; };
+		F615DAFE23F092AE009AC4E8 /* StatsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DAFD23F092AE009AC4E8 /* StatsStore.swift */; };
+		F615DB0023F092CE009AC4E8 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DAFF23F092CE009AC4E8 /* Stats.swift */; };
+		F615DB0323F09460009AC4E8 /* TableStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DB0223F09460009AC4E8 /* TableStatsView.swift */; };
+		F615DB0523F0950A009AC4E8 /* TableStatsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DB0423F0950A009AC4E8 /* TableStatsCardView.swift */; };
+		F615DB0723F0B19D009AC4E8 /* TableStatsCardViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F615DB0623F0B19D009AC4E8 /* TableStatsCardViewModifier.swift */; };
 		F65C261923EB78F4007246D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65C261823EB78F4007246D1 /* AppDelegate.swift */; };
 		F65C261B23EB78F4007246D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65C261A23EB78F4007246D1 /* SceneDelegate.swift */; };
 		F65C261E23EB78F4007246D1 /* ESTIMAS_SwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F65C261C23EB78F4007246D1 /* ESTIMAS_SwiftUI.xcdatamodeld */; };
@@ -44,7 +51,6 @@
 		F6BE74C323ECE74F00CEE721 /* TokenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74C223ECE74F00CEE721 /* TokenController.swift */; };
 		F6BE74C523ECEC7800CEE721 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74C423ECEC7800CEE721 /* SessionStore.swift */; };
 		F6E60A2823EE0193006C779E /* SecondsToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A2723EE0193006C779E /* SecondsToString.swift */; };
-		F6E60A2B23EE0D8A006C779E /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A2A23EE0D8A006C779E /* BottomSheetView.swift */; };
 		F6E60A2D23EE0DC5006C779E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A2C23EE0DC5006C779E /* ViewExtension.swift */; };
 		F6E60A2F23EF6EB6006C779E /* WorkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A2E23EF6EB6006C779E /* WorkStore.swift */; };
 		F6E60A3123EF74D6006C779E /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A3023EF74D6006C779E /* ActivityView.swift */; };
@@ -59,6 +65,13 @@
 		F615DAF223F00A7C009AC4E8 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		F615DAF523F05AE3009AC4E8 /* ProfilePictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureView.swift; sourceTree = "<group>"; };
 		F615DAF723F071F2009AC4E8 /* AdaptToSoftwareKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptToSoftwareKeyboard.swift; sourceTree = "<group>"; };
+		F615DAF923F0927C009AC4E8 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		F615DAFB23F092A2009AC4E8 /* StatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsController.swift; sourceTree = "<group>"; };
+		F615DAFD23F092AE009AC4E8 /* StatsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStore.swift; sourceTree = "<group>"; };
+		F615DAFF23F092CE009AC4E8 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		F615DB0223F09460009AC4E8 /* TableStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableStatsView.swift; sourceTree = "<group>"; };
+		F615DB0423F0950A009AC4E8 /* TableStatsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableStatsCardView.swift; sourceTree = "<group>"; };
+		F615DB0623F0B19D009AC4E8 /* TableStatsCardViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableStatsCardViewModifier.swift; sourceTree = "<group>"; };
 		F65C261523EB78F4007246D1 /* ESTIMAS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESTIMAS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F65C261823EB78F4007246D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F65C261A23EB78F4007246D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,7 +107,6 @@
 		F6BE74C223ECE74F00CEE721 /* TokenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenController.swift; sourceTree = "<group>"; };
 		F6BE74C423ECEC7800CEE721 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		F6E60A2723EE0193006C779E /* SecondsToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondsToString.swift; sourceTree = "<group>"; };
-		F6E60A2A23EE0D8A006C779E /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		F6E60A2C23EE0DC5006C779E /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		F6E60A2E23EF6EB6006C779E /* WorkStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkStore.swift; sourceTree = "<group>"; };
 		F6E60A3023EF74D6006C779E /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
@@ -137,6 +149,24 @@
 				F615DAF523F05AE3009AC4E8 /* ProfilePictureView.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		F615DB0123F09456009AC4E8 /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				F615DB0823F0B1F5009AC4E8 /* Modifiers */,
+				F615DB0223F09460009AC4E8 /* TableStatsView.swift */,
+				F615DB0423F0950A009AC4E8 /* TableStatsCardView.swift */,
+			);
+			path = Stats;
+			sourceTree = "<group>";
+		};
+		F615DB0823F0B1F5009AC4E8 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				F615DB0623F0B19D009AC4E8 /* TableStatsCardViewModifier.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		F65C260C23EB78F4007246D1 = {
@@ -202,6 +232,7 @@
 				F65C263623EB87EF007246D1 /* TimerTabView.swift */,
 				F68D1A9723EC773700E66AF3 /* WorkTabView.swift */,
 				F6BE74AF23ECC47100CEE721 /* ProfileTabView.swift */,
+				F615DAF923F0927C009AC4E8 /* StatsView.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -209,6 +240,7 @@
 		F65C263923EB8836007246D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F615DB0123F09456009AC4E8 /* Stats */,
 				F615DAF423F05AD7009AC4E8 /* User */,
 				F6E60A2923EE0D7E006C779E /* Helpers */,
 				F68D1A9923EC773B00E66AF3 /* Work */,
@@ -252,6 +284,7 @@
 				F6BE74A823ECA9C800CEE721 /* Activity.swift */,
 				F6BE74BA23ECD4D800CEE721 /* WorkItem.swift */,
 				F615DAF023EFFE38009AC4E8 /* User.swift */,
+				F615DAFF23F092CE009AC4E8 /* Stats.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,6 +297,7 @@
 				F6BE74B823ECD31D00CEE721 /* WorkItemController.swift */,
 				F6BE74C223ECE74F00CEE721 /* TokenController.swift */,
 				F615DAF223F00A7C009AC4E8 /* UserController.swift */,
+				F615DAFB23F092A2009AC4E8 /* StatsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -288,6 +322,7 @@
 				F6BE74C423ECEC7800CEE721 /* SessionStore.swift */,
 				F6E60A2E23EF6EB6006C779E /* WorkStore.swift */,
 				F615DAEE23EFFE18009AC4E8 /* UserStore.swift */,
+				F615DAFD23F092AE009AC4E8 /* StatsStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -295,7 +330,6 @@
 		F6E60A2923EE0D7E006C779E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F6E60A2A23EE0D8A006C779E /* BottomSheetView.swift */,
 				F6E60A2C23EE0DC5006C779E /* ViewExtension.swift */,
 			);
 			path = Helpers;
@@ -409,31 +443,37 @@
 				F6BE74C523ECEC7800CEE721 /* SessionStore.swift in Sources */,
 				F65C263F23EB885C007246D1 /* ActivityRowView.swift in Sources */,
 				F6BE74B923ECD31D00CEE721 /* WorkItemController.swift in Sources */,
+				F615DB0523F0950A009AC4E8 /* TableStatsCardView.swift in Sources */,
 				F6BE74AB23ECABC600CEE721 /* ActivityController.swift in Sources */,
 				F6BE74B323ECC76700CEE721 /* ProjectsStore.swift in Sources */,
 				F68D1A9823EC773700E66AF3 /* WorkTabView.swift in Sources */,
+				F615DAFA23F0927C009AC4E8 /* StatsView.swift in Sources */,
 				F615DAEF23EFFE18009AC4E8 /* UserStore.swift in Sources */,
 				F6BE74B023ECC47100CEE721 /* ProfileTabView.swift in Sources */,
 				F65C263523EB876D007246D1 /* TimerView.swift in Sources */,
 				F6E60A2823EE0193006C779E /* SecondsToString.swift in Sources */,
 				F65C261923EB78F4007246D1 /* AppDelegate.swift in Sources */,
 				F68D1AA323EC978800E66AF3 /* Token.swift in Sources */,
+				F615DB0023F092CE009AC4E8 /* Stats.swift in Sources */,
 				F65C261E23EB78F4007246D1 /* ESTIMAS_SwiftUI.xcdatamodeld in Sources */,
-				F6E60A2B23EE0D8A006C779E /* BottomSheetView.swift in Sources */,
 				F65C263323EB851B007246D1 /* ContentView.swift in Sources */,
 				F65C262023EB78F4007246D1 /* LoginView.swift in Sources */,
+				F615DB0323F09460009AC4E8 /* TableStatsView.swift in Sources */,
 				F6E60A3123EF74D6006C779E /* ActivityView.swift in Sources */,
 				F65C263123EB8183007246D1 /* MainTabView.swift in Sources */,
 				F615DAF123EFFE38009AC4E8 /* User.swift in Sources */,
 				F6BE74AE23ECBED400CEE721 /* HexToColor.swift in Sources */,
 				F65C261B23EB78F4007246D1 /* SceneDelegate.swift in Sources */,
+				F615DB0723F0B19D009AC4E8 /* TableStatsCardViewModifier.swift in Sources */,
 				F68D1A9D23EC775300E66AF3 /* WorkRowView.swift in Sources */,
+				F615DAFE23F092AE009AC4E8 /* StatsStore.swift in Sources */,
 				F6E60A2D23EE0DC5006C779E /* ViewExtension.swift in Sources */,
 				F6BE74C323ECE74F00CEE721 /* TokenController.swift in Sources */,
 				F68D1A9B23EC774800E66AF3 /* WorksListView.swift in Sources */,
 				F6BE74B723ECD2F800CEE721 /* TimerStore.swift in Sources */,
 				F615DAF323F00A7C009AC4E8 /* UserController.swift in Sources */,
 				F68D1AA523EC996000E66AF3 /* GlobalVariables.swift in Sources */,
+				F615DAFC23F092A2009AC4E8 /* StatsController.swift in Sources */,
 				F68D1AA123EC977F00E66AF3 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -36,6 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 .environmentObject(sessionStore.timerStore)
                 .environmentObject(sessionStore.workStore)
                 .environmentObject(sessionStore.userStore)
+                .environmentObject(sessionStore.statsStore)
             )
             self.window = window
             window.makeKeyAndVisible()

@@ -23,7 +23,7 @@ struct MainView: View {
                     Image(systemName: "folder.fill")
                     Text("Práce")
                 }
-            Text("The Last Tab")
+            StatsView(geometry: geometry)
                 .tabItem {
                     Image(systemName: "chart.pie.fill")
                     Text("Přehledy")

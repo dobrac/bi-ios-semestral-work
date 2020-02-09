@@ -10,24 +10,43 @@ import SwiftUI
 
 struct WorkRowView: View {
     var workItem: WorkItem
-
+    @State var showingMenu: Bool = false
+    
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                ActivityView(activity: workItem.activity)
-                Spacer()
-                VStack {
-                    Text(humanTime.string(from: workItem.getStartDate())).font(.system(.body, design: .monospaced))
-                    workItem.getEndDate().map({
-                        Text(humanTime.string(from: $0)).font(.system(.body, design: .monospaced))
-                    })
+            Button(action: {
+                withAnimation {
+                    self.showingMenu = true
                 }
-                Text(secondsToString(seconds: workItem.getTimeElapsed(from: Date())))
-                    .font(.system(.body, design: .monospaced))
-                    .padding(.leading, 10)
+            }) {
+                HStack {
+                    ActivityView(activity: workItem.activity)
+                    Spacer()
+                    VStack {
+                        Text(humanTime.string(from: workItem.getStartDate())).font(.system(.body, design: .monospaced))
+                            .foregroundColor(.primary)
+                        workItem.getEndDate().map({
+                            Text(humanTime.string(from: $0)).font(.system(.body, design: .monospaced))
+                                .foregroundColor(.primary)
+                        })
+                    }
+                    Text(secondsToString(seconds: workItem.getTimeElapsed(from: Date())))
+                        .font(.system(.body, design: .monospaced))
+                        .padding(.leading, 10)
+                        .foregroundColor(.primary)
+                }
+                .padding(.leading, 10)
+                .padding(.trailing, 10)
+            }.actionSheet(isPresented: $showingMenu) {
+                ActionSheet(title: Text(workItem.activity.name),
+                            buttons: [
+                                .default(Text("Upravit"), action: {
+                                }),
+                                .destructive(Text("Smazat"), action: {
+                                }),
+                                .cancel(Text("Zrušit"))
+                ])
             }
-            .padding(.leading, 10)
-            .padding(.trailing, 10)
             Divider()
         }
     }

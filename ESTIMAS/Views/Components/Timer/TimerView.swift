@@ -15,7 +15,6 @@ struct TimerView: View {
     var body: some View {
         TimerTaskView(workItem: self.timerStore.workItem)
             .frame(minWidth: 0, maxWidth: .infinity)
-            .frame(height: 50)
             .padding(14)
             .padding(.top, geometry.safeAreaInsets.top)
             .background(Color(red: 0.00, green: 0.41, blue: 0.71))
