@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ESTIMAS-SwiftUI.xcodeproj">
+      location = "self:ESTIMAS.xcodeproj">
    </FileRef>
 </Workspace>

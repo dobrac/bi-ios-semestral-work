@@ -1,0 +1,6 @@
+module Pods_ESTIMAS {
+  umbrella header "Pods-ESTIMAS-umbrella.h"
+
+  export *
+  module * { export * }
+}
