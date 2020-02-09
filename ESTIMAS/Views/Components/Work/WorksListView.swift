@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct WorksListView: View {
-     @EnvironmentObject var workStore: WorkStore
+    @EnvironmentObject var workStore: WorkStore
 
     var body: some View {
         VStack(spacing: 0) {
@@ -24,8 +24,7 @@ struct WorksListView: View {
                 .padding(.trailing, 10)
             }
             Divider().padding(.top, 10)
-            ScrollView {
-                FixRenderView()
+            List {
                 ForEach(workStore.workItems) { workItem in
                     WorkRowView(workItem: workItem).frame(minWidth: 0, maxWidth: .infinity)
                 }

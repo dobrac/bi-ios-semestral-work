@@ -14,7 +14,7 @@ struct TableStatsCardViewModifier: ViewModifier {
         content
             .frame(minWidth: 0, maxWidth: .infinity)
             .padding(8)
-            .background(Color(.white))
+            .background(Color(.systemBackground))
             .cornerRadius(8)
             .shadow(color: .gray, radius: 5)
             .padding(.leading, 10)

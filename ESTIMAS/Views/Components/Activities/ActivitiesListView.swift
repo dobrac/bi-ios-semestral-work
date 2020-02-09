@@ -13,8 +13,7 @@ struct ActivitiesListView: View {
 
     var body: some View {
         VStack {
-            ScrollView {
-                FixRenderView()
+            List {
                 ForEach(projectsStore.projects){ projects in
                     ProjectActivityView(projectActivity: projects).frame(minWidth: 0, maxWidth: .infinity)
                 }
