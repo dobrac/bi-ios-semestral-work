@@ -10,12 +10,33 @@ import SwiftUI
 
 struct WorkRowEditView: View {
     var workItem: WorkItem
-    
+
+    @State var startDate: Date
+    @State var endDate: Date
+
+    var completion: (_ startDate: Date, _ endDate: Date) -> ()
+
     var body: some View {
-        ScrollView {
+        NavigationView {
             VStack {
-                ActivityView(activity: self.workItem.activity)
+                Form {
+                    ActivityView(activity: self.workItem.activity)
+                    DatePicker(selection: $startDate) {
+                        Text("Začátek")
+                    }
+
+                    DatePicker(selection: $endDate) {
+                        Text("Konec")
+                    }
+
+                    Button(action: {
+                        self.completion(self.startDate, self.endDate)
+                    }) {
+                        Text("Upravit")
+                    }.fillParent(alignment: .center)
+                }
             }
+            .navigationBarTitle(Text("Editace práce"), displayMode: .inline)
         }
     }
 }

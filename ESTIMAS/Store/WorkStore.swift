@@ -30,4 +30,18 @@ class WorkStore : ObservableObject {
             self.loading = false
         }
     }
+
+    func removeWorkItem(workItem: WorkItem) {
+        loading = true
+        ESTIMAS.removeWorkItem(workItem: workItem) {
+            self.fetchWorkItems()
+        }
+    }
+
+    func editWorkItem(workItem: WorkItem, startDate: Date, endDate: Date) {
+        loading = true
+        ESTIMAS.editWorkItem(workItem: workItem, startDate: startDate, endDate: endDate) {
+            self.fetchWorkItems()
+        }
+    }
 }

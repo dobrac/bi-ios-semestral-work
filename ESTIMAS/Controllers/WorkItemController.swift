@@ -42,7 +42,7 @@ func startTask(activity: Activity, _ completion: @escaping ()->()) {
         headers: getBasicHeaders())
         .response { _ in
             completion()
-        }
+    }
 }
 
 func endLastTask(_ completion: @escaping ()->()) {
@@ -56,7 +56,7 @@ func endLastTask(_ completion: @escaping ()->()) {
         headers: getBasicHeaders())
         .response { _ in
             completion()
-        }
+    }
 }
 
 func getWorkItems(startDay: String, endDay: String, _ completion: @escaping ([WorkItem])->()) {
@@ -84,3 +84,40 @@ func getWorkItems(startDay: String, endDay: String, _ completion: @escaping ([Wo
             }
     }
 }
+
+func removeWorkItem(workItem: WorkItem, _ completion: @escaping ()->()) {
+    Alamofire.request("\(serverURL)/WorkItem/removeWorkItem",
+        method: .post,
+        parameters: ["uid": workItem.uid, "reason": ""],
+        encoding: JSONEncoding.default,
+        headers: getBasicHeaders())
+        .response { _ in
+            completion()
+    }
+}
+
+func editWorkItem(workItem: WorkItem, startDate: Date, endDate: Date, _ completion: @escaping ()->()) {
+    let tokenGet = getToken()
+    guard let token = tokenGet else {
+        return
+    }
+
+    Alamofire.request("\(serverURL)/WorkItem/updateWorkItem",
+        method: .post,
+        parameters: [
+            "uid": workItem.uid,
+            "uidUser": token.uid,
+            "uidActivity": workItem.activity.uid,
+            "startDate": mainDateFormat.string(from: startDate),
+            "endDate": mainDateFormat.string(from: endDate),
+            "note": workItem.note,
+            "billed": true,
+            "reason": ""
+        ],
+        encoding: JSONEncoding.default,
+        headers: getBasicHeaders())
+        .response { _ in
+            completion()
+    }
+}
+

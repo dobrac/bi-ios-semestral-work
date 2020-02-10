@@ -46,7 +46,6 @@
 		F6BE74AE23ECBED400CEE721 /* HexToColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74AD23ECBED400CEE721 /* HexToColor.swift */; };
 		F6BE74B023ECC47100CEE721 /* ProfileTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74AF23ECC47100CEE721 /* ProfileTabView.swift */; };
 		F6BE74B323ECC76700CEE721 /* ProjectsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74B223ECC76700CEE721 /* ProjectsStore.swift */; };
-		F6BE74B523ECD03400CEE721 /* FixRenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74B423ECD03400CEE721 /* FixRenderView.swift */; };
 		F6BE74B723ECD2F800CEE721 /* TimerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74B623ECD2F800CEE721 /* TimerStore.swift */; };
 		F6BE74B923ECD31D00CEE721 /* WorkItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74B823ECD31D00CEE721 /* WorkItemController.swift */; };
 		F6BE74BB23ECD4D800CEE721 /* WorkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74BA23ECD4D800CEE721 /* WorkItem.swift */; };
@@ -102,7 +101,6 @@
 		F6BE74AD23ECBED400CEE721 /* HexToColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexToColor.swift; sourceTree = "<group>"; };
 		F6BE74AF23ECC47100CEE721 /* ProfileTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabView.swift; sourceTree = "<group>"; };
 		F6BE74B223ECC76700CEE721 /* ProjectsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsStore.swift; sourceTree = "<group>"; };
-		F6BE74B423ECD03400CEE721 /* FixRenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixRenderView.swift; sourceTree = "<group>"; };
 		F6BE74B623ECD2F800CEE721 /* TimerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerStore.swift; sourceTree = "<group>"; };
 		F6BE74B823ECD31D00CEE721 /* WorkItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkItemController.swift; sourceTree = "<group>"; };
 		F6BE74BA23ECD4D800CEE721 /* WorkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkItem.swift; sourceTree = "<group>"; };
@@ -321,7 +319,6 @@
 			children = (
 				F68D1AA423EC996000E66AF3 /* GlobalVariables.swift */,
 				F6BE74AD23ECBED400CEE721 /* HexToColor.swift */,
-				F6BE74B423ECD03400CEE721 /* FixRenderView.swift */,
 				F6E60A2723EE0193006C779E /* SecondsToString.swift */,
 				F615DAF723F071F2009AC4E8 /* AdaptToSoftwareKeyboard.swift */,
 			);
@@ -449,7 +446,6 @@
 				F6BE74A923ECA9C900CEE721 /* Activity.swift in Sources */,
 				F6BE74BB23ECD4D800CEE721 /* WorkItem.swift in Sources */,
 				F65C263723EB87EF007246D1 /* TimerTabView.swift in Sources */,
-				F6BE74B523ECD03400CEE721 /* FixRenderView.swift in Sources */,
 				F615DAF623F05AE3009AC4E8 /* ProfilePictureView.swift in Sources */,
 				F65C263D23EB8852007246D1 /* ActivitiesListView.swift in Sources */,
 				F6E60A2F23EF6EB6006C779E /* WorkStore.swift in Sources */,
@@ -510,6 +506,7 @@
 /* Begin XCBuildConfiguration section */
 		F65C262A23EB78F5007246D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02F99E4B921501D3244E0F0A /* Pods-ESTIMAS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -570,6 +567,7 @@
 		};
 		F65C262B23EB78F5007246D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 478E891FA11D3A3C7F386E64 /* Pods-ESTIMAS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -627,17 +625,20 @@
 			baseConfigurationReference = 02F99E4B921501D3244E0F0A /* Pods-ESTIMAS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_ASSET_PATHS = "\"ESTIMAS/Preview Content\"";
-				DEVELOPMENT_TEAM = 32QTBJ2YM4;
+				DEVELOPMENT_TEAM = HYSA496R76;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ESTIMAS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cz.cvut.fit.dobryjak.ESTIMAS;
+				PRODUCT_BUNDLE_IDENTIFIER = cz.netinout.estimas;
 				PRODUCT_NAME = ESTIMAS;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -649,15 +650,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_ASSET_PATHS = "\"ESTIMAS/Preview Content\"";
-				DEVELOPMENT_TEAM = 32QTBJ2YM4;
+				DEVELOPMENT_TEAM = HYSA496R76;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ESTIMAS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cz.cvut.fit.dobryjak.ESTIMAS;
+				PRODUCT_BUNDLE_IDENTIFIER = cz.netinout.estimas;
 				PRODUCT_NAME = ESTIMAS;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

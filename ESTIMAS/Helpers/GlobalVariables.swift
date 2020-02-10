@@ -16,6 +16,7 @@ public var emptyDate: String = "0001-01-01T00:00:00"
 public var mainDateFormat: DateFormatter {
     get {
         let format = DateFormatter()
+        format.timeZone = TimeZone(identifier: "UTC")
         format.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss"
         return format
     }

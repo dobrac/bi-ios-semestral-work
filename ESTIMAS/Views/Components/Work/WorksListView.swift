@@ -28,11 +28,18 @@ struct WorksListView: View {
             List {
                 ForEach(workStore.workItems) { workItem in
                         WorkRowView(workItem: workItem).frame(minWidth: 0, maxWidth: .infinity)
-                }
+                    }.onDelete(perform: delete)
             }
             .pullToRefresh(isShowing: $workStore.loading) {
                 self.workStore.fetchWorkItems()
             }
+        }
+    }
+
+    func delete(at offsets: IndexSet) {
+        offsets.forEach {
+            let workItem: WorkItem = workStore.workItems.remove(at: $0)
+            workStore.removeWorkItem(workItem: workItem)
         }
     }
 }

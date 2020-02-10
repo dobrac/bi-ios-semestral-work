@@ -34,8 +34,8 @@ struct TimerTaskView: View {
     }
 
     @State var showingAlert: Bool = false
-    @State var currentDate = Date()
 
+    @State var currentDate = Date()
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
