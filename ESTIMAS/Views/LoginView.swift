@@ -13,8 +13,8 @@ import CoreData
 struct LoginView: View {
     @EnvironmentObject var sessionStore: SessionStore
 
-    @State private var username: String = "dobry@net-inout.cz"
-    @State private var password: String = "152430"
+    @State private var username: String = ""
+    @State private var password: String = ""
 
     @State private var loading: Bool = false
 
