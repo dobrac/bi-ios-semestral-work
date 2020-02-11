@@ -56,3 +56,19 @@ func getProfilePicture(_ completion: @escaping ((String?)->())) {
             completion(base64)
     }
 }
+
+func setProfilePicture(image: String, _ completion: @escaping ()->()) {
+    let tokenGet = getToken()
+    guard let token = tokenGet else {
+        return
+    }
+    
+    Alamofire.request("\(serverURL)/profilePicture/setPicture",
+        method: .post,
+        parameters: ["uidUser": token.uid, "basePicture": image],
+        encoding: JSONEncoding.default,
+        headers: getBasicHeaders())
+        .response { _ in
+            completion()
+    }
+}

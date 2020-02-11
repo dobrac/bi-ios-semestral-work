@@ -1,13 +1,7 @@
-//
-//  HexToColor.swift
-//  ESTIMAS
-//
-//  Created by Jakub Dobry on 06/02/2020.
-//  Copyright © 2020 Jakub Dobry. All rights reserved.
-//
-
 import Foundation
 import SwiftUI
+
+// External Source
 
 func hexStringToUIColor (hex:String) -> UIColor {
     var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()

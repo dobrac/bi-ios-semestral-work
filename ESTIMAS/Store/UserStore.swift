@@ -19,8 +19,19 @@ class UserStore : ObservableObject {
         getUser() { user in
             self.user = user
         }
+        fetchProfilePicture()
+    }
+
+    func fetchProfilePicture() {
         getProfilePicture() { profilePicture in
             self.profilePicture = profilePicture
+        }
+    }
+
+    func setProfilePicture(image: String) {
+        self.profilePicture = image
+        ESTIMAS.setProfilePicture(image: image) {
+            self.fetchProfilePicture()
         }
     }
 }

@@ -28,7 +28,7 @@ struct MainView: View {
                     Image(systemName: "chart.pie.fill")
                     Text("Přehledy")
             }
-            ProfileTabView()
+            ProfileTabView(geometry: geometry)
                 .tabItem {
                     Image(systemName: "person.fill")
                     Text("Profil")

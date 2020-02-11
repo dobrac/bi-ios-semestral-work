@@ -1,13 +1,8 @@
-//
-//  AdaptToSoftwareKeyboard.swift
-//  ESTIMAS
-//
-//  Created by Jakub Dobry on 09/02/2020.
-//  Copyright © 2020 Jakub Dobry. All rights reserved.
-//
-
 import SwiftUI
 import Combine
+
+
+// External Source
 
 struct AdaptsToSoftwareKeyboard: ViewModifier {
     @State var currentHeight: CGFloat = 0
