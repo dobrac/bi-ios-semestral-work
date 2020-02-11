@@ -14,12 +14,12 @@ struct WorksListView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            VStack(alignment: .leading) {
+            VStack {
                 HStack {
-                    Text("Činnost")
+                    Text("Činnost").font(.headline)
                     Spacer()
-                    Text("Od - do")
-                    Text("Trvání").padding(.leading, 10).padding(.trailing, 40)
+                    Text("Od - do").font(.headline)
+                    Text("Trvání").font(.headline).padding(.leading, 10).padding(.trailing, 40)
                 }
                 .padding(.horizontal, 10)
                 Divider()

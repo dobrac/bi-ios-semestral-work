@@ -40,11 +40,8 @@ struct WorkRowView: View {
                     .foregroundColor(.primary)
                     .onReceive(timer) { time in
                         self.currentDate = time
-                    }
+                }
             }.padding(.vertical, 10)
-        }.actionSheet(isPresented: $showingMenu) {
-            ActionSheet(title: Text(workItem.activity.name),
-                        buttons: getActionSheetButtons())
         }.sheet(isPresented: $showingEdit) {
             WorkRowEditView(workItem: self.workItem, startDate: self.workItem.getStartDate(), endDate: self.workItem.getEndDate()!, completion: { startDate, endDate in
                 self.workStore.editWorkItem(workItem: self.workItem, startDate: startDate, endDate: endDate)
@@ -52,6 +49,9 @@ struct WorkRowView: View {
                     self.showingEdit = false
                 }
             })
+        }.actionSheet(isPresented: $showingMenu) {
+            ActionSheet(title: Text(workItem.activity.name),
+                        buttons: getActionSheetButtons())
         }
     }
 

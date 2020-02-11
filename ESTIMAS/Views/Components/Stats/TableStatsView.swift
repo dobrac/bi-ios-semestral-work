@@ -25,7 +25,7 @@ struct TableStatsView: View {
                 Spacer()
                 TableStatsCardView(title: "Včera", value: tableStats?.billedTimeYesterday ?? 0, alignment: .trailing, geometry: geometry)
                     .foregroundColor(.gray)
-            }.modifier(TableStatsCardViewModifier()).padding(.top, 30)
+            }.modifier(TableStatsCardViewModifier())
             
             HStack {
                 TableStatsCardView(title: "Tento týden", value: tableStats?.billedTimeThisWeek ?? 0, geometry: geometry)
@@ -42,6 +42,6 @@ struct TableStatsView: View {
             }.modifier(TableStatsCardViewModifier())
 
             Spacer()
-        }
+        }.padding(.top, 30)
     }
 }
