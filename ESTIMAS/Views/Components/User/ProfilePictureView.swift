@@ -31,4 +31,5 @@ struct ProfilePictureView: View {
             .resizable()
             .frame(width: width, height: width, alignment: .center)
             .cornerRadius(.infinity)
+    }
 }
