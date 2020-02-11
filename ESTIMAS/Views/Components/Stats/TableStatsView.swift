@@ -19,7 +19,7 @@ struct TableStatsView: View {
     }
 
     var body: some View {
-        VStack(spacing: 30) {
+        VStack(spacing: 40) {
             HStack {
                 TableStatsCardView(title: "Dnes", value: tableStats?.billedTimeToday ?? 0, geometry: geometry)
                 Spacer()

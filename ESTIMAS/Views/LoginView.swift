@@ -23,14 +23,16 @@ struct LoginView: View {
             WebImage(url: URL(string: "https://v10.server.estimas.cz/api/CompanyLogo/get/\(companyName)"))
                 .resizable() // Resizable like SwiftUI.Image
                 .scaledToFit()
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 50, trailing: 0));
+                .padding(.bottom, 50);
 
             VStack(alignment: .leading) {
                 Text("Uživatel").bold()
-                TextField("Uživatel", text: $username);
+                TextField("Uživatel", text: $username)
+                    .textContentType(.emailAddress)
+                    .keyboardType(.emailAddress)
 
                 Text("Heslo").bold().padding(.top, 20)
-                SecureField("Heslo", text: $password);
+                SecureField("Heslo", text: $password).textContentType(.password)
             }.padding(.bottom, 10)
 
             Button(action: {

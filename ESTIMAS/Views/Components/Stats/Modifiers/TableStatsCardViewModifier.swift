@@ -13,11 +13,11 @@ struct TableStatsCardViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .frame(minWidth: 0, maxWidth: .infinity)
-            .padding(8)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 20)
             .background(Color(.systemBackground))
             .cornerRadius(8)
             .shadow(color: .gray, radius: 5)
-            .padding(.leading, 10)
-            .padding(.trailing, 10)
+            .padding(.horizontal, 15)
     }
 }

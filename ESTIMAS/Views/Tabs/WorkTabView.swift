@@ -10,8 +10,10 @@ import SwiftUI
 
 struct WorkTabView: View {
     var body: some View {
-        VStack {
+        NavigationView {
             WorksListView()
+                .padding(.top, 30)
+                .navigationBarTitle("Záznamy")
         }
     }
 }

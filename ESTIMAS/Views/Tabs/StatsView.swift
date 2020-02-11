@@ -12,6 +12,8 @@ struct StatsView: View {
     var geometry: GeometryProxy
 
     var body: some View {
-        TableStatsView(geometry: geometry)
+        NavigationView {
+            TableStatsView(geometry: geometry).navigationBarTitle("Přehledy")
+        }
     }
 }

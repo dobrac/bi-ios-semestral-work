@@ -20,15 +20,14 @@ struct WorkRowView: View {
 
     var body: some View {
         Button(action: {
-            withAnimation {
-                self.showingMenu = true
-            }
+            self.showingMenu = true
         }) {
             HStack {
                 ActivityView(activity: workItem.activity)
                 Spacer()
                 VStack {
-                    Text(humanTime.string(from: workItem.getStartDate())).font(.system(.body, design: .monospaced))
+                    Text(humanTime.string(from: workItem.getStartDate()))
+                        .font(.system(.body, design: .monospaced))
                         .foregroundColor(.primary)
                     Text(translateEndTime())
                         .font(.system(.body, design: .monospaced))
@@ -42,7 +41,7 @@ struct WorkRowView: View {
                     .onReceive(timer) { time in
                         self.currentDate = time
                     }
-            }
+            }.padding(.vertical, 10)
         }.actionSheet(isPresented: $showingMenu) {
             ActionSheet(title: Text(workItem.activity.name),
                         buttons: getActionSheetButtons())

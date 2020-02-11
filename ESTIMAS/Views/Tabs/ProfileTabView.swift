@@ -66,7 +66,8 @@ struct ProfileTabView: View {
                     .background(Color.red)
                     .cornerRadius(10)
             }
-            .padding(20)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 40)
         }
     }
     

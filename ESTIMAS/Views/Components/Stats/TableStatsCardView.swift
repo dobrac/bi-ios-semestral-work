@@ -19,7 +19,7 @@ struct TableStatsCardView: View {
     var body: some View {
         VStack(alignment: alignment) {
             Text(title)
-            Text(formatWorked(seconds: value))
+            Text(formatWorked(seconds: value)).font(.headline)
         }
     }
 }

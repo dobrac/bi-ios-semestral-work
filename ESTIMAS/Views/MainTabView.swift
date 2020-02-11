@@ -21,7 +21,7 @@ struct MainView: View {
             WorkTabView()
                 .tabItem {
                     Image(systemName: "folder.fill")
-                    Text("Práce")
+                    Text("Záznamy")
                 }
             StatsView(geometry: geometry)
                 .tabItem {
@@ -34,7 +34,6 @@ struct MainView: View {
                     Text("Profil")
             }
         }
-        .font(.headline)
         .edgesIgnoringSafeArea(.top)
     }
 }

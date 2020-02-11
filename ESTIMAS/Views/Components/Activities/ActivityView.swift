@@ -16,7 +16,7 @@ struct ActivityView: View {
             Text(activity.project.name)
                 .foregroundColor(activity.color)
             Text(activity.name)
-                .foregroundColor(.primary)
+                .foregroundColor(.primary).font(.headline)
         }
     }
 }

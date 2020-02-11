@@ -21,14 +21,14 @@ struct WorksListView: View {
                     Text("Od - do")
                     Text("Trvání").padding(.leading, 10).padding(.trailing, 40)
                 }
-                .padding(.leading, 10)
-                .padding(.trailing, 10)
+                .padding(.horizontal, 10)
+                Divider()
             }
-            Divider().padding(.top, 10)
+
             List {
                 ForEach(workStore.workItems) { workItem in
-                        WorkRowView(workItem: workItem).frame(minWidth: 0, maxWidth: .infinity)
-                    }.onDelete(perform: delete)
+                    WorkRowView(workItem: workItem)
+                }.onDelete(perform: delete)
             }
             .pullToRefresh(isShowing: $workStore.loading) {
                 self.workStore.fetchWorkItems()

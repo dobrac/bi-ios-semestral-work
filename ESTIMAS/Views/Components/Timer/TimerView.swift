@@ -65,10 +65,12 @@ struct TimerTaskView: View {
                 if isLoading() {
                     Text("Načítání...")
                         .foregroundColor(Color.white)
+                        .font(.headline)
                 } else {
                     VStack(alignment: .leading) {
                         Text(workItem!.activity.name)
                             .foregroundColor(Color.white)
+                            .font(.headline)
                         Text(secondsToString(seconds: workItem!.getTimeElapsed(from: currentDate)))
                             .font(.system(.body, design: .monospaced))
                             .foregroundColor(Color.white)
