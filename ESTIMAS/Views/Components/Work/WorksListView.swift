@@ -7,24 +7,20 @@
 //
 
 import SwiftUI
-import SwiftUIRefresh
 
 struct WorksListView: View {
     @EnvironmentObject var workStore: WorkStore
 
     var body: some View {
         VStack{
-            if (!workStore.error) {
-                base
-            } else {
-                base
-                    .opacity(0)
-                    .overlay (
-                        ErrorLoadingView(action: {
-                            self.workStore.fetchWorkItems()
-                        })
-                )
+            ErrorLoadingView(state: workStore.state, action: {
+                self.workStore.fetchWorkItems()
+            }) {
+                self.base
             }
+        }
+        .pullToRefresh(isShowing: workStore.state.isSoftLoading) {
+            self.workStore.fetchWorkItems()
         }
     }
 
@@ -39,9 +35,6 @@ struct WorksListView: View {
             ForEach(workStore.workItems) { workItem in
                 WorkRowView(workItem: workItem)
             }.onDelete(perform: delete)
-        }
-        .pullToRefresh(isShowing: $workStore.loading) {
-            self.workStore.fetchWorkItems()
         }
     }
 

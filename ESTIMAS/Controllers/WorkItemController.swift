@@ -20,7 +20,7 @@ func getLastWorkItem(_ error: @escaping () -> (),_ completion: @escaping ((WorkI
                 error()
                 return
             }
-
+            
             do {
                 let result = try JSONDecoder().decode(WorkItem.self, from: data)
                 if result.endDate == emptyDate {
@@ -52,7 +52,7 @@ func endLastTask(_ completion: @escaping ()->()) {
     guard let token = tokenGet else {
         return
     }
-
+    
     Alamofire.request("\(serverURL)/WorkItem/endWorkUID/\(token.uid)",
         method: .get,
         headers: getBasicHeaders())
@@ -67,7 +67,7 @@ func getWorkItems(startDay: String, endDay: String, _ error: @escaping () -> (),
         error()
         return
     }
-
+    
     Alamofire.request("\(serverURL)/WorkItem/getForUserInterval/\(startDay)/\(endDay)/\(token.uid)",
         method: .get,
         headers: getBasicHeaders())
@@ -77,7 +77,7 @@ func getWorkItems(startDay: String, endDay: String, _ error: @escaping () -> (),
                 error()
                 return
             }
-
+            
             do {
                 let result = try JSONDecoder().decode([WorkItem].self, from: data)
                 completion(result.reversed())
@@ -105,7 +105,7 @@ func editWorkItem(workItem: WorkItem, startDate: Date, endDate: Date, _ completi
     guard let token = tokenGet else {
         return
     }
-
+    
     Alamofire.request("\(serverURL)/WorkItem/updateWorkItem",
         method: .post,
         parameters: [

@@ -12,29 +12,34 @@ class UserStore : ObservableObject {
     @Published var user: User?
     @Published var profilePicture: String?
 
-    @Published var loading: Bool = false
-    @Published var error: Bool = false
+    @Published var state: FETCH_STATE = .hardLoading
 
     init() {
     }
 
+    private func setupLoading() {
+        if (state == .error) {
+            state = .hardLoading
+        } else {
+            state = .softLoading
+        }
+    }
+
     func fetchUserData() {
-        loading = true
-        error = false
+        setupLoading()
 
         getUser({
-            self.error = true
-            self.loading = false
+            self.state = .error
         }) { user in
             self.user = user
-            self.loading = false
+            self.state = .success
         }
         fetchProfilePicture()
     }
 
     func fetchProfilePicture() {
         getProfilePicture({
-            
+
         }) { profilePicture in
             self.profilePicture = profilePicture
         }

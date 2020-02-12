@@ -10,22 +10,27 @@ import Foundation
 
 class StatsStore : ObservableObject {
     @Published var tableStats: TableStats?
-    @Published var loading: Bool = false
-    @Published var error: Bool = false
+    @Published var state: FETCH_STATE = .hardLoading
 
     init() {
     }
 
+    private func setupLoading() {
+        if (state == .error) {
+            state = .hardLoading
+        } else {
+            state = .softLoading
+        }
+    }
+
     func fetchStats() {
-        self.loading = true
-        self.error = false
-        
+        setupLoading()
+
         getTableStats({
-            self.error = true
-            self.loading = false
+            self.state = .error
         }) { tableStats in
             self.tableStats = tableStats
-            self.loading = false
+            self.state = .success
         }
     }
 }

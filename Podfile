@@ -9,5 +9,6 @@ target 'ESTIMAS' do
   # Pods for ESTIMAS
   pod 'SDWebImageSwiftUI'
   pod 'Alamofire', '~> 4.9'
-  pod "SwiftUIRefresh"
+  pod "Introspect"
+  # pod "SwiftUIRefresh"
 end

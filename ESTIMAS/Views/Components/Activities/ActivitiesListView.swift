@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import SwiftUIRefresh
 
 struct ActivitiesListView: View {
     @EnvironmentObject var projectsStore: ProjectsStore
@@ -15,18 +14,16 @@ struct ActivitiesListView: View {
     
     var body: some View {
         VStack {
-            if (!projectsStore.error) {
-                base
-            } else {
-                base
-                    .opacity(0)
-                    .overlay (
-                        ErrorLoadingView(action: {
-                            self.projectsStore.fetchProjects()
-                            self.timerStore.fetchLastTask()
-                        })
-                )
+            ErrorLoadingView(state: projectsStore.state, action: {
+                self.projectsStore.fetchProjects()
+                self.timerStore.fetchLastTask(showLoading: false)
+            }) {
+                self.base
             }
+        }
+        .pullToRefresh(isShowing: projectsStore.state.isSoftLoading) {
+            self.projectsStore.fetchProjects()
+            self.timerStore.fetchLastTask(showLoading: false)
         }
     }
     
@@ -37,10 +34,6 @@ struct ActivitiesListView: View {
             }
         }
         .listSeparatorStyleNone()
-        .pullToRefresh(isShowing: $projectsStore.loading) {
-            self.projectsStore.fetchProjects()
-            self.timerStore.fetchLastTask(showLoading: false)
-        }
     }
 }
 

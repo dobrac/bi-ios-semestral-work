@@ -10,15 +10,23 @@ import Foundation
 
 class WorkStore : ObservableObject {
     @Published var workItems: [WorkItem] = []
-    @Published var loading: Bool = false
-    @Published var error: Bool = false
+    @Published var state: FETCH_STATE = .hardLoading
 
     init() {
     }
 
-    func fetchWorkItems() {
-        loading = true
-        error = false
+    private func setupLoading() {
+        if (state == .error) {
+            state = .hardLoading
+        } else {
+            state = .softLoading
+        }
+    }
+
+    func fetchWorkItems(showLoading: Bool = true) {
+        if (showLoading) {
+            setupLoading()
+        }
 
         let date = Date()
 
@@ -28,25 +36,22 @@ class WorkStore : ObservableObject {
         let dayString = dateFormatter.string(from: date)
 
         getWorkItems(startDay: dayString, endDay: dayString, {
-            self.error = true
-            self.loading = false
+            self.state = .error
         }) { array in
             self.workItems = array
-            self.loading = false
+            self.state = .success
         }
     }
 
     func removeWorkItem(workItem: WorkItem) {
-        loading = true
         ESTIMAS.removeWorkItem(workItem: workItem) {
-            self.fetchWorkItems()
+            self.fetchWorkItems(showLoading: false)
         }
     }
 
     func editWorkItem(workItem: WorkItem, startDate: Date, endDate: Date) {
-        loading = true
         ESTIMAS.editWorkItem(workItem: workItem, startDate: startDate, endDate: endDate) {
-            self.fetchWorkItems()
+            self.fetchWorkItems(showLoading: false)
         }
     }
 }

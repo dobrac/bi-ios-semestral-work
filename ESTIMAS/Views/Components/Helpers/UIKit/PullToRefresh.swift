@@ -2,46 +2,45 @@ import SwiftUI
 import Introspect
 
 private struct PullToRefresh: UIViewRepresentable {
-    
-    @Binding var isShowing: Bool
+
+    var isShowing: Bool
     let onRefresh: () -> Void
-    
+
     public init(
-        isShowing: Binding<Bool>,
+        isShowing: Bool,
         onRefresh: @escaping () -> Void
     ) {
-        _isShowing = isShowing
+        self.isShowing = isShowing
         self.onRefresh = onRefresh
     }
-    
+
     public class Coordinator {
         let onRefresh: () -> Void
-        let isShowing: Binding<Bool>
-        
+        let isShowing: Bool
+
         init(
             onRefresh: @escaping () -> Void,
-            isShowing: Binding<Bool>
+            isShowing: Bool
         ) {
             self.onRefresh = onRefresh
             self.isShowing = isShowing
         }
-        
+
         @objc
         func onValueChanged() {
-            isShowing.wrappedValue = true
             onRefresh()
         }
     }
-    
+
     public func makeUIView(context: UIViewRepresentableContext<PullToRefresh>) -> UIView {
         let view = UIView(frame: .zero)
         view.isHidden = true
         view.isUserInteractionEnabled = false
         return view
     }
-    
+
     private func tableView(entry: UIView) -> UITableView? {
-        
+
         // Search in ancestors
         if let tableView = Introspect.findAncestor(ofType: UITableView.self, from: entry) {
             return tableView
@@ -56,13 +55,11 @@ private struct PullToRefresh: UIViewRepresentable {
     }
 
     public func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<PullToRefresh>) {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            
+        DispatchQueue.main.async {
             guard let tableView = self.tableView(entry: uiView) else {
                 return
             }
-            
+
             if let refreshControl = tableView.refreshControl {
                 if self.isShowing {
                     refreshControl.beginRefreshing()
@@ -71,20 +68,20 @@ private struct PullToRefresh: UIViewRepresentable {
                 }
                 return
             }
-            
+
             let refreshControl = UIRefreshControl()
             refreshControl.addTarget(context.coordinator, action: #selector(Coordinator.onValueChanged), for: .valueChanged)
             tableView.refreshControl = refreshControl
         }
     }
-    
+
     public func makeCoordinator() -> Coordinator {
-        return Coordinator(onRefresh: onRefresh, isShowing: $isShowing)
+        return Coordinator(onRefresh: onRefresh, isShowing: isShowing)
     }
 }
 
 extension View {
-    public func pullToRefresh(isShowing: Binding<Bool>, onRefresh: @escaping () -> Void) -> some View {
+    public func pullToRefresh(isShowing: Bool, onRefresh: @escaping () -> Void) -> some View {
         return overlay(
             PullToRefresh(isShowing: isShowing, onRefresh: onRefresh)
                 .frame(width: 0, height: 0)

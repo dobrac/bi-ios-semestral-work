@@ -11,22 +11,28 @@ import Combine
 
 class ProjectsStore : ObservableObject {
     @Published var projects: [ProjectActivity]
-    @Published var loading: Bool = false
-    @Published var error: Bool = false
+    @Published var state: FETCH_STATE = .hardLoading
 
     init(projects: [ProjectActivity]) {
         self.projects = projects
     }
 
+    private func setupLoading() {
+        if (state == .error) {
+            state = .hardLoading
+        } else {
+            state = .softLoading
+        }
+    }
+
     func fetchProjects() {
-        loading = true
-        error = false
+        setupLoading()
+
         getProjectActivitiesGrouped({
-            self.error = true
-            self.loading = false
+            self.state = .error
         }) { array in
             self.projects = array
-            self.loading = false
+            self.state = .success
         }
     }
 }

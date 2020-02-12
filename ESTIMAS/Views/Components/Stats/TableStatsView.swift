@@ -20,18 +20,15 @@ struct TableStatsView: View {
 
     var body: some View {
         VStack {
-            if (!statsStore.error) {
-                base
-            } else {
-                base
-                    .opacity(0)
-                    .overlay (
-                        ErrorLoadingView(action: {
-                            self.statsStore.fetchStats()
-                        })
-                )
+            ErrorLoadingView(state: statsStore.state, action: {
+                self.statsStore.fetchStats()
+            }) {
+                self.base
             }
         }
+        .pullToRefresh(isShowing: statsStore.state.isSoftLoading, onRefresh: {
+            self.statsStore.fetchStats()
+        })
     }
 
     private var base: some View {
@@ -62,8 +59,5 @@ struct TableStatsView: View {
             }
         }
         .listSeparatorStyleNone()
-        .pullToRefresh(isShowing: $statsStore.loading, onRefresh: {
-            self.statsStore.fetchStats()
-        })
     }
 }

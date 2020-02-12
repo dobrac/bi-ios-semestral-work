@@ -10,8 +10,7 @@ import Foundation
 
 class TimerStore : ObservableObject {
     @Published var workItem: WorkItem?
-    @Published var loading: Bool = false
-    @Published var error: Bool = false
+    @Published var state: FETCH_STATE = .hardLoading
 
     var sessionStore: SessionStore
 
@@ -19,23 +18,29 @@ class TimerStore : ObservableObject {
         self.sessionStore = sessionStore
     }
 
+    private func setupLoading() {
+        if (state == .error) {
+            state = .hardLoading
+        } else {
+            state = .softLoading
+        }
+    }
+
     func fetchLastTask(showLoading: Bool = true) {
         if (showLoading) {
-            self.loading = true
+            setupLoading()
         }
-        self.error = false
 
         getLastWorkItem({
-            self.error = true
-            self.loading = false
+            self.state = .error
         }) { workItem in
             self.workItem = workItem
-            self.loading = false
+            self.state = .success
         }
     }
 
     func startTimer(activity: Activity) {
-        self.loading = true
+        setupLoading()
 
         startTask(activity: activity) {
             self.fetchLastTask()

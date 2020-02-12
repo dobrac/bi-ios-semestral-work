@@ -30,7 +30,7 @@ struct TimerTaskView: View {
     }
 
     func isLoading() -> Bool {
-        return timerStore.loading
+        return timerStore.state.isLoading
     }
 
     @State var showingAlert: Bool = false
