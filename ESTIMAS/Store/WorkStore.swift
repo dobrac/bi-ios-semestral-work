@@ -11,12 +11,14 @@ import Foundation
 class WorkStore : ObservableObject {
     @Published var workItems: [WorkItem] = []
     @Published var loading: Bool = false
+    @Published var error: Bool = false
 
     init() {
     }
 
     func fetchWorkItems() {
         loading = true
+        error = false
 
         let date = Date()
 
@@ -25,7 +27,10 @@ class WorkStore : ObservableObject {
 
         let dayString = dateFormatter.string(from: date)
 
-        getWorkItems(startDay: dayString, endDay: dayString) { array in
+        getWorkItems(startDay: dayString, endDay: dayString, {
+            self.error = true
+            self.loading = false
+        }) { array in
             self.workItems = array
             self.loading = false
         }

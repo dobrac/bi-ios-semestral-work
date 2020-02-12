@@ -13,30 +13,40 @@ struct WorksListView: View {
     @EnvironmentObject var workStore: WorkStore
 
     var body: some View {
-        VStack(spacing: 0) {
-            VStack {
-                HStack {
-                    Text("Činnost").font(.headline)
-                    Spacer()
-                    Text("Od - do").font(.headline)
-                    Text("Trvání").font(.headline).padding(.leading, 10).padding(.trailing, 40)
-                }
-                .padding(.horizontal, 10)
-                Divider()
-            }
-
-            List {
-                ForEach(workStore.workItems) { workItem in
-                    WorkRowView(workItem: workItem)
-                }.onDelete(perform: delete)
-            }
-            .pullToRefresh(isShowing: $workStore.loading) {
-                self.workStore.fetchWorkItems()
+        VStack{
+            if (!workStore.error) {
+                base
+            } else {
+                base
+                    .opacity(0)
+                    .overlay (
+                        ErrorLoadingView(action: {
+                            self.workStore.fetchWorkItems()
+                        })
+                )
             }
         }
     }
 
-    func delete(at offsets: IndexSet) {
+    private var base: some View {
+        List {
+            HStack {
+                Text("Činnost").font(.headline)
+                Spacer()
+                Text("Od - do").font(.headline)
+                Text("Trvání").font(.headline).padding(.leading, 10).padding(.trailing, 35)
+            }
+            ForEach(workStore.workItems) { workItem in
+                WorkRowView(workItem: workItem)
+            }.onDelete(perform: delete)
+        }
+        .pullToRefresh(isShowing: $workStore.loading) {
+            self.workStore.fetchWorkItems()
+        }
+    }
+
+
+    private func delete(at offsets: IndexSet) {
         offsets.forEach {
             let workItem: WorkItem = workStore.workItems.remove(at: $0)
             workStore.removeWorkItem(workItem: workItem)

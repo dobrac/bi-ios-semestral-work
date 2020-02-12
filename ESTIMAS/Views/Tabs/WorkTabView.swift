@@ -12,7 +12,6 @@ struct WorkTabView: View {
     var body: some View {
         NavigationView {
             WorksListView()
-                .padding(.top, 30)
                 .navigationBarTitle("Záznamy")
         }
     }

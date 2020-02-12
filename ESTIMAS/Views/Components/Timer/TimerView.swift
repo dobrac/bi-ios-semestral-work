@@ -80,7 +80,7 @@ struct TimerTaskView: View {
                     }
                 }
             } else {
-                Text("Žádná činnost")
+                Text("Zahajte práci výběrem činnosti")
                     .foregroundColor(Color.white)
             }
             Spacer()

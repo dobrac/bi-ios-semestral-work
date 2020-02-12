@@ -14,9 +14,9 @@ struct ActivityView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(activity.project.name)
-                .foregroundColor(activity.color)
+                .foregroundColor(activity.color).font(.headline)
             Text(activity.name)
-                .foregroundColor(.primary).font(.headline)
+                .foregroundColor(.primary)
         }
     }
 }

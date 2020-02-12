@@ -11,6 +11,7 @@ import Foundation
 class TimerStore : ObservableObject {
     @Published var workItem: WorkItem?
     @Published var loading: Bool = false
+    @Published var error: Bool = false
 
     var sessionStore: SessionStore
 
@@ -18,10 +19,16 @@ class TimerStore : ObservableObject {
         self.sessionStore = sessionStore
     }
 
-    func fetchLastTask() {
-        self.loading = true
+    func fetchLastTask(showLoading: Bool = true) {
+        if (showLoading) {
+            self.loading = true
+        }
+        self.error = false
 
-        getLastWorkItem() { workItem in
+        getLastWorkItem({
+            self.error = true
+            self.loading = false
+        }) { workItem in
             self.workItem = workItem
             self.loading = false
         }
@@ -40,6 +47,7 @@ class TimerStore : ObservableObject {
         self.workItem = nil
         endLastTask {
             self.sessionStore.workStore.fetchWorkItems()
+            self.sessionStore.statsStore.fetchStats()
         }
     }
 }

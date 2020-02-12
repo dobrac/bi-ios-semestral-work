@@ -19,29 +19,51 @@ struct TableStatsView: View {
     }
 
     var body: some View {
-        VStack(spacing: 40) {
-            HStack {
-                TableStatsCardView(title: "Dnes", value: tableStats?.billedTimeToday ?? 0, geometry: geometry)
-                Spacer()
-                TableStatsCardView(title: "Včera", value: tableStats?.billedTimeYesterday ?? 0, alignment: .trailing, geometry: geometry)
-                    .foregroundColor(.gray)
-            }.modifier(TableStatsCardViewModifier())
-            
-            HStack {
-                TableStatsCardView(title: "Tento týden", value: tableStats?.billedTimeThisWeek ?? 0, geometry: geometry)
-                Spacer()
-                TableStatsCardView(title: "Minulý týden", value: tableStats?.billedTimeLastWeek ?? 0, alignment: .trailing, geometry: geometry)
-                    .foregroundColor(.gray)
-            }.modifier(TableStatsCardViewModifier())
+        VStack {
+            if (!statsStore.error) {
+                base
+            } else {
+                base
+                    .opacity(0)
+                    .overlay (
+                        ErrorLoadingView(action: {
+                            self.statsStore.fetchStats()
+                        })
+                )
+            }
+        }
+    }
 
-            HStack {
-                TableStatsCardView(title: "Tento měsíc", value: tableStats?.billedTimeThisMonth ?? 0, geometry: geometry)
-                Spacer()
-                TableStatsCardView(title: "Minulý měsíc", value: tableStats?.billedTimeLastMonth ?? 0, alignment: .trailing, geometry: geometry)
-                    .foregroundColor(.gray)
-            }.modifier(TableStatsCardViewModifier())
+    private var base: some View {
+        List {
+            VStack(spacing: 40) {
+                HStack {
+                    TableStatsCardView(title: "Dnes", value: tableStats?.billedTimeToday ?? 0, geometry: geometry)
+                    Spacer()
+                    TableStatsCardView(title: "Včera", value: tableStats?.billedTimeYesterday ?? 0, alignment: .trailing, geometry: geometry)
+                        .foregroundColor(.gray)
+                }.modifier(TableStatsCardViewModifier())
 
-            Spacer()
-        }.padding(.top, 30)
+                HStack {
+                    TableStatsCardView(title: "Tento týden", value: tableStats?.billedTimeThisWeek ?? 0, geometry: geometry)
+                    Spacer()
+                    TableStatsCardView(title: "Minulý týden", value: tableStats?.billedTimeLastWeek ?? 0, alignment: .trailing, geometry: geometry)
+                        .foregroundColor(.gray)
+                }.modifier(TableStatsCardViewModifier())
+
+                HStack {
+                    TableStatsCardView(title: "Tento měsíc", value: tableStats?.billedTimeThisMonth ?? 0, geometry: geometry)
+                    Spacer()
+                    TableStatsCardView(title: "Minulý měsíc", value: tableStats?.billedTimeLastMonth ?? 0, alignment: .trailing, geometry: geometry)
+                        .foregroundColor(.gray)
+                }.modifier(TableStatsCardViewModifier())
+
+                Spacer()
+            }
+        }
+        .listSeparatorStyleNone()
+        .pullToRefresh(isShowing: $statsStore.loading, onRefresh: {
+            self.statsStore.fetchStats()
+        })
     }
 }

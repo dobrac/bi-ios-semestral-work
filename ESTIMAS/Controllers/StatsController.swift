@@ -9,9 +9,10 @@
 import Foundation
 import Alamofire
 
-func getTableStats(_ completion: @escaping ((TableStats?)->())) {
+func getTableStats(_ error: @escaping () -> (),_ completion: @escaping ((TableStats?)->())) {
     let tokenGet = getToken()
     guard let token = tokenGet else {
+        error()
         return
     }
 
@@ -22,17 +23,18 @@ func getTableStats(_ completion: @escaping ((TableStats?)->())) {
         headers: getBasicHeaders())
         .response { response in
             guard let data = response.data else {
-                print("FETCH ERROR: TableStats")
-                completion(nil);
+                print("getTableStats: FETCH ERROR")
+                error()
                 return
             }
 
             do {
                 let result = try JSONDecoder().decode(TableStats.self, from: data)
                 completion(result)
+                return
             } catch {
-                print("FETCH ERROR: TableStats")
-                completion(nil)
+                print("getTableStats: FETCH ERROR")
             }
+            error()
     }
 }

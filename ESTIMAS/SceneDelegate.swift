@@ -32,11 +32,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: contentView
                 .environmentObject(sessionStore)
-                .environmentObject(sessionStore.projectsStore)
-                .environmentObject(sessionStore.timerStore)
-                .environmentObject(sessionStore.workStore)
-                .environmentObject(sessionStore.userStore)
-                .environmentObject(sessionStore.statsStore)
             )
             self.window = window
             window.makeKeyAndVisible()

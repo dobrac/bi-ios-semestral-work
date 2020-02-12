@@ -12,18 +12,30 @@ class UserStore : ObservableObject {
     @Published var user: User?
     @Published var profilePicture: String?
 
+    @Published var loading: Bool = false
+    @Published var error: Bool = false
+
     init() {
     }
 
     func fetchUserData() {
-        getUser() { user in
+        loading = true
+        error = false
+
+        getUser({
+            self.error = true
+            self.loading = false
+        }) { user in
             self.user = user
+            self.loading = false
         }
         fetchProfilePicture()
     }
 
     func fetchProfilePicture() {
-        getProfilePicture() { profilePicture in
+        getProfilePicture({
+            
+        }) { profilePicture in
             self.profilePicture = profilePicture
         }
     }

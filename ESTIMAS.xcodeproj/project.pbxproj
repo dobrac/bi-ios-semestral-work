@@ -42,6 +42,7 @@
 		F68D1AA123EC977F00E66AF3 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D1AA023EC977F00E66AF3 /* LoginController.swift */; };
 		F68D1AA323EC978800E66AF3 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D1AA223EC978800E66AF3 /* Token.swift */; };
 		F68D1AA523EC996000E66AF3 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D1AA423EC996000E66AF3 /* GlobalVariables.swift */; };
+		F69C44E923F367E80035923A /* ErrorLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C44E823F367E80035923A /* ErrorLoadingView.swift */; };
 		F6BE74A923ECA9C900CEE721 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74A823ECA9C800CEE721 /* Activity.swift */; };
 		F6BE74AB23ECABC600CEE721 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74AA23ECABC600CEE721 /* ActivityController.swift */; };
 		F6BE74AE23ECBED400CEE721 /* HexToColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74AD23ECBED400CEE721 /* HexToColor.swift */; };
@@ -53,7 +54,7 @@
 		F6BE74C323ECE74F00CEE721 /* TokenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74C223ECE74F00CEE721 /* TokenController.swift */; };
 		F6BE74C523ECEC7800CEE721 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BE74C423ECEC7800CEE721 /* SessionStore.swift */; };
 		F6E60A2823EE0193006C779E /* SecondsToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A2723EE0193006C779E /* SecondsToString.swift */; };
-		F6E60A2D23EE0DC5006C779E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A2C23EE0DC5006C779E /* ViewExtension.swift */; };
+		F6E60A2D23EE0DC5006C779E /* FillParentViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A2C23EE0DC5006C779E /* FillParentViewExtension.swift */; };
 		F6E60A2F23EF6EB6006C779E /* WorkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A2E23EF6EB6006C779E /* WorkStore.swift */; };
 		F6E60A3123EF74D6006C779E /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E60A3023EF74D6006C779E /* ActivityView.swift */; };
 /* End PBXBuildFile section */
@@ -98,6 +99,7 @@
 		F68D1AA023EC977F00E66AF3 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		F68D1AA223EC978800E66AF3 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		F68D1AA423EC996000E66AF3 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		F69C44E823F367E80035923A /* ErrorLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorLoadingView.swift; sourceTree = "<group>"; };
 		F6BE74A823ECA9C800CEE721 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		F6BE74AA23ECABC600CEE721 /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		F6BE74AD23ECBED400CEE721 /* HexToColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexToColor.swift; sourceTree = "<group>"; };
@@ -111,7 +113,7 @@
 		F6BE74C223ECE74F00CEE721 /* TokenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenController.swift; sourceTree = "<group>"; };
 		F6BE74C423ECEC7800CEE721 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		F6E60A2723EE0193006C779E /* SecondsToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondsToString.swift; sourceTree = "<group>"; };
-		F6E60A2C23EE0DC5006C779E /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		F6E60A2C23EE0DC5006C779E /* FillParentViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillParentViewExtension.swift; sourceTree = "<group>"; };
 		F6E60A2E23EF6EB6006C779E /* WorkStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkStore.swift; sourceTree = "<group>"; };
 		F6E60A3023EF74D6006C779E /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +181,22 @@
 				F62D6E3F23F0CBF300EBD485 /* ListSeparatorStyleNoneModifier.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		F62D6E4C23F3469B00EBD485 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F6E60A2C23EE0DC5006C779E /* FillParentViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F62D6E4D23F346A500EBD485 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				F62D6E4823F216FD00EBD485 /* ImagePicker.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		F65C260C23EB78F4007246D1 = {
@@ -252,7 +270,7 @@
 		F65C263923EB8836007246D1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				F62D6E3E23F0CBE000EBD485 /* Modifiers */,
+				F69C44E723F367D90035923A /* Common */,
 				F615DB0123F09456009AC4E8 /* Stats */,
 				F615DAF423F05AD7009AC4E8 /* User */,
 				F6E60A2923EE0D7E006C779E /* Helpers */,
@@ -316,6 +334,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		F69C44E723F367D90035923A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F69C44E823F367E80035923A /* ErrorLoadingView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		F6BE74AC23ECBEBA00CEE721 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,8 +369,9 @@
 		F6E60A2923EE0D7E006C779E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				F6E60A2C23EE0DC5006C779E /* ViewExtension.swift */,
-				F62D6E4823F216FD00EBD485 /* ImagePicker.swift */,
+				F62D6E4D23F346A500EBD485 /* UIKit */,
+				F62D6E4C23F3469B00EBD485 /* Extensions */,
+				F62D6E3E23F0CBE000EBD485 /* Modifiers */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -462,6 +489,7 @@
 				F615DB0523F0950A009AC4E8 /* TableStatsCardView.swift in Sources */,
 				F6BE74AB23ECABC600CEE721 /* ActivityController.swift in Sources */,
 				F6BE74B323ECC76700CEE721 /* ProjectsStore.swift in Sources */,
+				F69C44E923F367E80035923A /* ErrorLoadingView.swift in Sources */,
 				F68D1A9823EC773700E66AF3 /* WorkTabView.swift in Sources */,
 				F615DAFA23F0927C009AC4E8 /* StatsView.swift in Sources */,
 				F615DAEF23EFFE18009AC4E8 /* UserStore.swift in Sources */,
@@ -483,7 +511,7 @@
 				F615DB0723F0B19D009AC4E8 /* TableStatsCardViewModifier.swift in Sources */,
 				F68D1A9D23EC775300E66AF3 /* WorkRowView.swift in Sources */,
 				F615DAFE23F092AE009AC4E8 /* StatsStore.swift in Sources */,
-				F6E60A2D23EE0DC5006C779E /* ViewExtension.swift in Sources */,
+				F6E60A2D23EE0DC5006C779E /* FillParentViewExtension.swift in Sources */,
 				F6BE74C323ECE74F00CEE721 /* TokenController.swift in Sources */,
 				F68D1A9B23EC774800E66AF3 /* WorksListView.swift in Sources */,
 				F6BE74B723ECD2F800CEE721 /* TimerStore.swift in Sources */,
@@ -631,7 +659,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_ASSET_PATHS = "\"ESTIMAS/Preview Content\"";
 				DEVELOPMENT_TEAM = HYSA496R76;
 				ENABLE_PREVIEWS = YES;
@@ -655,7 +683,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CURRENT_PROJECT_VERSION = 1.5;
 				DEVELOPMENT_ASSET_PATHS = "\"ESTIMAS/Preview Content\"";
 				DEVELOPMENT_TEAM = HYSA496R76;
 				ENABLE_PREVIEWS = YES;

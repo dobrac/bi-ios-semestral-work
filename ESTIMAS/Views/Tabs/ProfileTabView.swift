@@ -17,57 +17,71 @@ struct ProfileTabView: View {
     
     @State var showImagePicker: Bool = false
     @State var image: UIImage? = nil
+
+    @State var showingAlert: Bool = false
     
     let geometry: GeometryProxy
     
     var body: some View {
-        VStack {
+        NavigationView {
             VStack {
+                VStack {
+                    Button(action: {
+                        withAnimation {
+                            self.showImageOptions = true
+                        }
+                    }) {
+                        ProfilePictureView(profilePicture: userStore.profilePicture, geometry: geometry)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .padding(.bottom, 20)
+                    .padding(.top, 40)
+                    .actionSheet(isPresented: $showImageOptions) {
+                        ActionSheet(title: Text("Zvolte způsob pro nastavení nového profilového obrázku"),
+                                    buttons: getActionSheetButtons())
+                    }
+                    .sheet(isPresented: $showImagePicker) {
+                        ImagePicker(type: self.selectedImageOption!, image: self.$image).onDisappear {
+                            guard let imageG = self.image else { return }
+
+                            let imageData: Data? = imageG.jpegData(compressionQuality: 0.4)
+                            let imageStr = imageData?.base64EncodedString(options: .lineLength64Characters) ?? ""
+
+                            self.userStore.setProfilePicture(image: imageStr)
+                        }
+                    }
+
+                    Text(userStore.user?.fullName ?? "Loading...").bold().font(.system(size: 35))
+                    Text(userStore.user?.email ?? "Loading...")
+                }
+
+                Spacer()
+
                 Button(action: {
                     withAnimation {
-                        self.showImageOptions = true
+                        self.showingAlert = true
                     }
                 }) {
-                    ProfilePictureView(profilePicture: userStore.profilePicture, geometry: geometry)
+                    Text("Odhlásit se")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding(10)
+                        .foregroundColor(.white)
+                        .background(Color.red)
+                        .cornerRadius(10)
                 }
-                .buttonStyle(PlainButtonStyle())
-                .padding(.bottom, 20)
-                .padding(.top, 40)
-                .actionSheet(isPresented: $showImageOptions) {
-                    ActionSheet(title: Text("Zvolte způsob pro nastavení nového profilového obrázku"),
-                                buttons: getActionSheetButtons())
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Odhlásit se?"),
+                          message: Text("Opravdu se chcete odhlásit?"),
+                          primaryButton: .destructive(Text("Ano"), action: {
+                            withAnimation() {
+                                self.sessionStore.logout()
+                            }
+                          }),
+                          secondaryButton: .default(Text("Ne")))
                 }
-                .sheet(isPresented: $showImagePicker) {
-                    ImagePicker(type: self.selectedImageOption!, image: self.$image).onDisappear {
-                        guard let imageG = self.image else { return }
-                        
-                        let imageData: Data? = imageG.jpegData(compressionQuality: 0.4)
-                        let imageStr = imageData?.base64EncodedString(options: .lineLength64Characters) ?? ""
-                        
-                        self.userStore.setProfilePicture(image: imageStr)
-                    }
-                }
-                
-                Text(userStore.user?.fullName ?? "Loading...").bold().font(.system(size: 35))
-                Text(userStore.user?.email ?? "Loading...")
-            }
-            
-            Spacer()
-            
-            Button(action: {
-                withAnimation {
-                    self.sessionStore.logout()
-                }
-            }) {
-                Text("Odhlásit se")
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .padding(10)
-                    .foregroundColor(.white)
-                    .background(Color.red)
-                    .cornerRadius(10)
-            }
-            .padding(.horizontal, 20)
-            .padding(.vertical, 40)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 40)
+            }.navigationBarTitle("Profil", displayMode: .inline)
         }
     }
     

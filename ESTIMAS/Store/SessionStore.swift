@@ -11,24 +11,28 @@ import Foundation
 class SessionStore : ObservableObject {
     @Published var token: Token?
 
-    var projectsStore: ProjectsStore
-    var workStore: WorkStore
-    var userStore: UserStore
-    var statsStore: StatsStore
+    private(set) var projectsStore: ProjectsStore!
+    private(set) var workStore: WorkStore!
+    private(set) var userStore: UserStore!
+    private(set) var statsStore: StatsStore!
     private(set) var timerStore: TimerStore!
 
     init() {
-        projectsStore = ProjectsStore(projects: [])
-        workStore = WorkStore()
-        userStore = UserStore()
-        statsStore = StatsStore()
-        timerStore = TimerStore(sessionStore: self)
+        initStores()
 
         let tokenGet = getToken()
         if let token = tokenGet {
             self.token = token
             afterLogin()
         }
+    }
+
+    func initStores() {
+        projectsStore = ProjectsStore(projects: [])
+        workStore = WorkStore()
+        userStore = UserStore()
+        statsStore = StatsStore()
+        timerStore = TimerStore(sessionStore: self)
     }
 
     func isLoggedIn() -> Bool {
@@ -61,5 +65,7 @@ class SessionStore : ObservableObject {
     func logout() {
         self.token = nil
         clearToken()
+
+        initStores()
     }
 }

@@ -9,15 +9,15 @@
 import Foundation
 import Alamofire
 
-func getLastWorkItem(_ completion: @escaping ((WorkItem?)->())) {
+func getLastWorkItem(_ error: @escaping () -> (),_ completion: @escaping ((WorkItem?)->())) {
     Alamofire.request("\(serverURL)/WorkItem/getLast",
         method: .get,
         encoding: JSONEncoding.default,
         headers: getBasicHeaders())
         .response { response in
             guard let data = response.data else {
-                print("FETCH ERROR")
-                completion(nil);
+                print("getLastWorkItem: FETCH ERROR")
+                error()
                 return
             }
 
@@ -25,12 +25,14 @@ func getLastWorkItem(_ completion: @escaping ((WorkItem?)->())) {
                 let result = try JSONDecoder().decode(WorkItem.self, from: data)
                 if result.endDate == emptyDate {
                     completion(result)
-                    return
+                } else {
+                    completion(nil)
                 }
+                return
             } catch {
-                print("FETCH ERROR")
+                print("getLastWorkItem: FETCH ERROR")
             }
-            completion(nil)
+            error()
     }
 }
 
@@ -59,9 +61,10 @@ func endLastTask(_ completion: @escaping ()->()) {
     }
 }
 
-func getWorkItems(startDay: String, endDay: String, _ completion: @escaping ([WorkItem])->()) {
+func getWorkItems(startDay: String, endDay: String, _ error: @escaping () -> (),_ completion: @escaping ([WorkItem])->()) {
     let tokenGet = getToken()
     guard let token = tokenGet else {
+        error()
         return
     }
 
@@ -70,18 +73,19 @@ func getWorkItems(startDay: String, endDay: String, _ completion: @escaping ([Wo
         headers: getBasicHeaders())
         .response { response in
             guard let data = response.data else {
-                print("FETCH ERROR")
-                completion([]);
+                print("getWorkItems: FETCH ERROR")
+                error()
                 return
             }
 
             do {
                 let result = try JSONDecoder().decode([WorkItem].self, from: data)
                 completion(result.reversed())
+                return
             } catch {
-                print("FETCH ERROR")
-                completion([])
+                print("getWorkItems: FETCH ERROR")
             }
+            error()
     }
 }
 

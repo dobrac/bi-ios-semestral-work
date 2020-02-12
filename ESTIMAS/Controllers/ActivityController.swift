@@ -9,10 +9,10 @@
 import Foundation
 import Alamofire
 
-func getProjectActivitiesGrouped(_ completion: @escaping (([ProjectActivity])->())) {
+func getProjectActivitiesGrouped(_ error: @escaping () -> (),_ completion: @escaping (([ProjectActivity])->())) {
     let tokenGet = getToken()
     guard let token = tokenGet else {
-        completion([])
+        error()
         return
     }
 
@@ -23,17 +23,18 @@ func getProjectActivitiesGrouped(_ completion: @escaping (([ProjectActivity])->(
         headers: getBasicHeaders())
         .response { response in
             guard let data = response.data else {
-                print("FETCH ERROR")
-                completion([]);
+                print("getProjectActivitiesGrouped: FETCH ERROR")
+                error()
                 return
             }
 
             do {
                 let result = try JSONDecoder().decode([ProjectActivity].self, from: data)
                 completion(result)
+                return
             } catch {
-                print("FETCH ERROR")
-                completion([])
+                print("getProjectActivitiesGrouped: FETCH ERROR")
             }
+            error()
     }
 }

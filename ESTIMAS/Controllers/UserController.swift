@@ -9,9 +9,10 @@
 import Foundation
 import Alamofire
 
-func getUser(_ completion: @escaping ((User?)->())) {
+func getUser(_ error: @escaping () -> (),_ completion: @escaping ((User?)->())) {
     let tokenGet = getToken()
     guard let token = tokenGet else {
+        error()
         return
     }
 
@@ -21,24 +22,26 @@ func getUser(_ completion: @escaping ((User?)->())) {
         headers: getBasicHeaders())
         .response { response in
             guard let data = response.data else {
-                print("FETCH ERROR: User")
-                completion(nil);
+                print("getUser: FETCH ERROR")
+                error()
                 return
             }
 
             do {
                 let result = try JSONDecoder().decode(User.self, from: data)
                 completion(result)
+                return
             } catch {
-                print("FETCH ERROR: User")
-                completion(nil)
+                print("getUser: FETCH ERROR")
             }
+            error()
     }
 }
 
-func getProfilePicture(_ completion: @escaping ((String?)->())) {
+func getProfilePicture(_ error: @escaping () -> (),_ completion: @escaping ((String?)->())) {
     let tokenGet = getToken()
     guard let token = tokenGet else {
+        error()
         return
     }
 
@@ -47,8 +50,8 @@ func getProfilePicture(_ completion: @escaping ((String?)->())) {
         headers: getBasicHeaders())
         .response { response in
             guard let data = response.data else {
-                print("FETCH ERROR: ProfilePicture")
-                completion(nil);
+                print("getProfilePicture: FETCH ERROR")
+                error()
                 return
             }
 

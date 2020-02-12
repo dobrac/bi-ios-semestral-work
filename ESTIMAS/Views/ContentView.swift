@@ -16,8 +16,13 @@ struct ContentView: View {
         GeometryReader { geometry in
             if self.sessionStore.isLoggedIn() {
                 MainView(geometry: geometry)
+                    .environmentObject(self.sessionStore.projectsStore)
+                    .environmentObject(self.sessionStore.timerStore)
+                    .environmentObject(self.sessionStore.workStore)
+                    .environmentObject(self.sessionStore.userStore)
+                    .environmentObject(self.sessionStore.statsStore)
             } else {
-                LoginView();
+                LoginView()
             }
         }
     }

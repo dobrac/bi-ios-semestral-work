@@ -12,6 +12,7 @@ import Combine
 class ProjectsStore : ObservableObject {
     @Published var projects: [ProjectActivity]
     @Published var loading: Bool = false
+    @Published var error: Bool = false
 
     init(projects: [ProjectActivity]) {
         self.projects = projects
@@ -19,7 +20,11 @@ class ProjectsStore : ObservableObject {
 
     func fetchProjects() {
         loading = true
-        getProjectActivitiesGrouped() { array in
+        error = false
+        getProjectActivitiesGrouped({
+            self.error = true
+            self.loading = false
+        }) { array in
             self.projects = array
             self.loading = false
         }

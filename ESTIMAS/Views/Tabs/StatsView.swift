@@ -13,7 +13,8 @@ struct StatsView: View {
 
     var body: some View {
         NavigationView {
-            TableStatsView(geometry: geometry).navigationBarTitle("Přehledy")
+            TableStatsView(geometry: geometry)
+                .navigationBarTitle("Přehledy")
         }
     }
 }
