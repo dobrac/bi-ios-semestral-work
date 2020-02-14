@@ -9,12 +9,13 @@
 import SwiftUI
 
 struct ErrorLoadingView<Content: View>: View {
-    var state: FETCH_STATE
+    @Binding var state: FETCH_STATE
+
     var action: () -> ()
     let viewBuilder: () -> Content
 
-    init(state: FETCH_STATE, action: @escaping () -> (), viewBuilder: @escaping () -> Content) {
-        self.state = state
+    init(state: Binding<FETCH_STATE>, action: @escaping () -> (), viewBuilder: @escaping () -> Content) {
+        self._state = state
         self.action = action
         self.viewBuilder = viewBuilder
     }
@@ -23,53 +24,57 @@ struct ErrorLoadingView<Content: View>: View {
         .withTintColor(.red, renderingMode: .alwaysTemplate)
         .withBaselineOffset(fromBottom: CGFloat.init(0))
 
-    private var showContent: Bool {
+    @State var waitForSuccess = false
+
+    var showError: Bool {
         get {
-            return state.isSuccess || state.isSoftLoading
+            if (state.isSuccess) {
+                DispatchQueue.main.async {
+                    self.waitForSuccess = false
+                }
+            }
+            return state.isError || waitForSuccess
         }
     }
 
     var body: some View {
-        VStack {
-            if (showContent) {
-                viewBuilder()
-            } else {
-                AnyView(
-                    VStack {
-                        HStack {
-                            Image(systemName: "circle.fill")
-                            Image(systemName: "circle.fill")
-                            Image(systemName: "circle.fill")
-                        }
-                        .padding(.bottom, 10)
-                        .opacity(state.isLoading ? 1 : 0)
-                        .animation(.easeIn(duration: 1))
+        ZStack {
+            viewBuilder()
+                .opacity(showError ? 0 : 1)
+                .animation(.easeInOut(duration: 0.2))
 
-
-                        if (state.isError) {
-                            VStack {
-                                Text("Nepodařilo se stáhnout data").foregroundColor(.secondary)
-                                Button(action: {
-                                    withAnimation {
-                                        self.action()
-                                    }
-                                }) {
-                                    HStack(alignment: .center) {
-                                        Image(uiImage: image)
-                                            .foregroundColor(.red)
-                                            .font(.headline)
-                                        Text("Zkusit znovu")
-                                            .foregroundColor(.primary)
-                                    }
-                                }
-                                .disabled(state.isLoading)
-                            }
-                            .opacity(state.isLoading ? 0 : 1)
-                            .animation(.easeInOut(duration: 1))
-                        }
+            if (showError) {
+                VStack {
+                    HStack {
+                        Image(systemName: "circle.fill")
+                        Image(systemName: "circle.fill")
+                        Image(systemName: "circle.fill")
                     }
+                    .padding(.bottom, 10)
+                    .opacity(state.isLoading ? 1 : 0)
+                    .animation(.easeInOut(duration: 1))
 
-                )
+
+                    VStack {
+                        Text("Nepodařilo se stáhnout data").foregroundColor(.secondary)
+                        Button(action: {
+                            self.waitForSuccess = true
+                            withAnimation {
+                                self.action()
+                            }
+                        }) {
+                            HStack(alignment: .center) {
+                                Image(uiImage: image)
+                                    .foregroundColor(.red)
+                                    .font(.headline)
+                                Text("Zkusit znovu")
+                                    .foregroundColor(.primary)
+                            }
+                        }
+                        .disabled(state.isLoading)
+                    }
+                    .opacity(state.isLoading ? 0 : 1)
+                }
             }
         }.frame(maxHeight: .infinity)
     }

@@ -15,7 +15,7 @@ public var serverURL: String = "https://v11.server.estimas.cz/api"
 public var emptyDate: String = "0001-01-01T00:00:00"
 
 public enum FETCH_STATE {
-    case success, softLoading, hardLoading, error
+    case success, loading, error
 
     var isError: Bool {
         get { return self == .error}
@@ -23,17 +23,7 @@ public enum FETCH_STATE {
     }
 
     var isLoading: Bool {
-        get { return isSoftLoading || isHardLoading}
-        set {  }
-    }
-
-    var isSoftLoading: Bool {
-        get { return self == .softLoading}
-        set {  }
-    }
-
-    var isHardLoading: Bool {
-        get { return self == .hardLoading}
+        get { return self == .loading}
         set {  }
     }
 

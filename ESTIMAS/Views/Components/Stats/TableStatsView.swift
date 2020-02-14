@@ -18,17 +18,16 @@ struct TableStatsView: View {
         }
     }
 
+    @State var showLoading = true
+
     var body: some View {
         VStack {
-            ErrorLoadingView(state: statsStore.state, action: {
+            ErrorLoadingView(state: $statsStore.state, action: {
                 self.statsStore.fetchStats()
             }) {
                 self.base
             }
         }
-        .pullToRefresh(isShowing: statsStore.state.isSoftLoading, onRefresh: {
-            self.statsStore.fetchStats()
-        })
     }
 
     private var base: some View {
@@ -59,5 +58,8 @@ struct TableStatsView: View {
             }
         }
         .listSeparatorStyleNone()
+        .pullToRefresh(isShowing: $statsStore.state.isLoading, onRefresh: {
+            self.statsStore.fetchStats()
+        })
     }
 }

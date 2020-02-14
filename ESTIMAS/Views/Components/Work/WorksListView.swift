@@ -13,14 +13,11 @@ struct WorksListView: View {
 
     var body: some View {
         VStack{
-            ErrorLoadingView(state: workStore.state, action: {
+            ErrorLoadingView(state: $workStore.state, action: {
                 self.workStore.fetchWorkItems()
             }) {
                 self.base
             }
-        }
-        .pullToRefresh(isShowing: workStore.state.isSoftLoading) {
-            self.workStore.fetchWorkItems()
         }
     }
 
@@ -35,6 +32,9 @@ struct WorksListView: View {
             ForEach(workStore.workItems) { workItem in
                 WorkRowView(workItem: workItem)
             }.onDelete(perform: delete)
+        }
+        .pullToRefresh(isShowing: $workStore.state.isLoading) {
+            self.workStore.fetchWorkItems()
         }
     }
 

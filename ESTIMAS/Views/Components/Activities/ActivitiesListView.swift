@@ -14,16 +14,12 @@ struct ActivitiesListView: View {
     
     var body: some View {
         VStack {
-            ErrorLoadingView(state: projectsStore.state, action: {
+            ErrorLoadingView(state: $projectsStore.state, action: {
                 self.projectsStore.fetchProjects()
-                self.timerStore.fetchLastTask(showLoading: false)
+                self.timerStore.fetchLastTask()
             }) {
                 self.base
             }
-        }
-        .pullToRefresh(isShowing: projectsStore.state.isSoftLoading) {
-            self.projectsStore.fetchProjects()
-            self.timerStore.fetchLastTask(showLoading: false)
         }
     }
     
@@ -34,6 +30,10 @@ struct ActivitiesListView: View {
             }
         }
         .listSeparatorStyleNone()
+        .pullToRefresh(isShowing: $projectsStore.state.isLoading) {
+            self.projectsStore.fetchProjects()
+            self.timerStore.fetchLastTask()
+        }
     }
 }
 

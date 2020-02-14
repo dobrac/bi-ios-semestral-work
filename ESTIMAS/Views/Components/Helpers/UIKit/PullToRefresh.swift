@@ -3,27 +3,27 @@ import Introspect
 
 private struct PullToRefresh: UIViewRepresentable {
 
-    var isShowing: Bool
+    @Binding var isShowing: Bool
     let onRefresh: () -> Void
 
     public init(
-        isShowing: Bool,
+        isShowing: Binding<Bool>,
         onRefresh: @escaping () -> Void
     ) {
-        self.isShowing = isShowing
+        self._isShowing = isShowing
         self.onRefresh = onRefresh
     }
 
     public class Coordinator {
         let onRefresh: () -> Void
-        let isShowing: Bool
+        @Binding var isShowing: Bool
 
         init(
             onRefresh: @escaping () -> Void,
-            isShowing: Bool
+            isShowing: Binding<Bool>
         ) {
             self.onRefresh = onRefresh
-            self.isShowing = isShowing
+            self._isShowing = isShowing
         }
 
         @objc
@@ -40,7 +40,6 @@ private struct PullToRefresh: UIViewRepresentable {
     }
 
     private func tableView(entry: UIView) -> UITableView? {
-
         // Search in ancestors
         if let tableView = Introspect.findAncestor(ofType: UITableView.self, from: entry) {
             return tableView
@@ -76,12 +75,12 @@ private struct PullToRefresh: UIViewRepresentable {
     }
 
     public func makeCoordinator() -> Coordinator {
-        return Coordinator(onRefresh: onRefresh, isShowing: isShowing)
+        return Coordinator(onRefresh: onRefresh, isShowing: $isShowing)
     }
 }
 
 extension View {
-    public func pullToRefresh(isShowing: Bool, onRefresh: @escaping () -> Void) -> some View {
+    public func pullToRefresh(isShowing: Binding<Bool>, onRefresh: @escaping () -> Void) -> some View {
         return overlay(
             PullToRefresh(isShowing: isShowing, onRefresh: onRefresh)
                 .frame(width: 0, height: 0)
